@@ -3001,7 +3001,7 @@ export default function Home() {
               {
                 img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092337/2911191530526914-150x150_a5fseg.jpg",
                 title: "State Govt Honor",
-                desc: "Honored by Chief Minister Ms. J. Jayalalitha on behalf of Govt of Tamil Nadu.",
+                desc: "Honored by Chief Minister Ms. J. Jayalalitha on behalf of Govt of Tamil Nadu to the CEO of Adhiparasakthi Annai Illam.",
                 year: "2015",
               },
               {
@@ -3018,6 +3018,29 @@ export default function Home() {
                 img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092336/2911191530534191-150x150_lo2fc6.jpg",
                 title: "Best Institution",
                 desc: "Awarded to Adhiparasakthi Annai Illam (Centre for Special Children).",
+              },
+              {
+                img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092338/2911191530529377-150x150_mz3ixh.jpg",
+                title: "Award of Appreciation",
+                desc: "Awarded by the Department of Health and Family Welfare for medical services.",
+                year: "2019",
+              },
+              {
+                img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092338/2911191530527252-150x150_ud5spj.jpg",
+                title: "Regional Recognition",
+                desc: "Acknowledging our continuous support to local community development.",
+              },
+              {
+                img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092337/2911191530521793-150x150_hqdtpk.jpg",
+                title: "Official Certification",
+                desc: "Certification of merit from authorized government bodies.",
+              },
+              {
+                img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092338/awards-150x150_rtu0ni.png",
+                title: "National Honor",
+                desc: "Founder President H.H. Bangaru Adigalar receiving the prestigious award from the President of India.",
+                highlight: true,
+                badge: "Highest Honor",
               },
             ].map((award, idx) => (
               <motion.div
