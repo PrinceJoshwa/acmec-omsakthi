@@ -2559,7 +2559,7 @@ export default function Home() {
               through holistic healthcare and education.
             </motion.p>
 
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-5">
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-8">
               <Link href="https://www.omsakthiamma.org/online_services/donations" className="w-full sm:w-auto group">
                 <Button className="w-full sm:w-auto bg-[#a7150b] hover:bg-[#d91e11] text-white rounded-full px-10 py-7 text-lg font-bold shadow-[0_0_40px_-10px_rgba(167,21,11,0.6)] transition-all hover:scale-105 hover:shadow-[0_0_60px_-10px_rgba(167,21,11,0.8)]">
                   <Heart className="mr-3 w-5 h-5 fill-current group-hover:animate-pulse" />
@@ -2596,7 +2596,7 @@ export default function Home() {
       </section>
 
       {/* Upcoming Events Banner */}
-      <section className="py-4 bg-[#a7150b] text-white relative overflow-hidden">
+      {/* <section className="py-4 bg-[#a7150b] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvc3ZnPg==')] opacity-30" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -2620,7 +2620,7 @@ export default function Home() {
             </Link>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* About Section */}
       <section id="about" className="py-24 md:py-32 px-4 container mx-auto">
