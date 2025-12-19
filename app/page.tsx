@@ -2975,6 +2975,10 @@ import {
   Download,
   X,
   Clock,
+  AlertTriangle,
+  ShieldCheck,
+  AlertCircle,
+  HeartHandshake,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
@@ -3333,107 +3337,80 @@ function Leadership() {
   )
 }
 
-// ========== 4. CSR REGISTRATION COMPONENT (SCROLLABLE & LARGE IMAGE) ==========
 function CsrRegistration() {
-  const [isCsrLetterModalOpen, setIsCsrLetterModalOpen] = useState(false)
+  
+  // Animation variants
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  }
 
   return (
-    <>
-      <section className="py-20 bg-foreground text-background">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-              <div className="flex items-center gap-3 mb-4">
-                <Landmark className="w-8 h-8 text-[#ffc107]" />
-                <span className="text-[#ffc107] font-bold tracking-widest uppercase text-sm">Government of India</span>
-              </div>
-              <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">Official CSR Registration</h2>
-              <p className="text-background/80 text-lg mb-8 leading-relaxed">
-                Adhiparasakthi Charitable Medical Educational and Cultural Trust is officially registered with the
-                Ministry of Corporate Affairs for undertaking CSR activities.
-              </p>
-              <div className="grid sm:grid-cols-2 gap-6 mb-8">
-                <div className="bg-white/10 p-4 rounded-xl border border-white/10 backdrop-blur-sm">
-                  <p className="text-xs text-background/60 uppercase tracking-widest mb-1">Registration Number</p>
-                  <p className="text-2xl font-mono font-bold text-[#ffc107]">CSR00002407</p>
-                </div>
-                <div className="bg-white/10 p-4 rounded-xl border border-white/10 backdrop-blur-sm">
-                  <p className="text-xs text-background/60 uppercase tracking-widest mb-1">Date of Registration</p>
-                  <p className="text-xl font-bold">16-04-2021</p>
-                </div>
-              </div>
-              <Button onClick={() => setIsCsrLetterModalOpen(true)} className="bg-background text-foreground hover:bg-background/90 rounded-full px-8 py-6 font-bold">
-                <FileText className="w-5 h-5 mr-2" /> View Official Approval Letter
-              </Button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative h-[400px] bg-background rounded-2xl overflow-hidden p-6 shadow-2xl rotate-2 hover:rotate-0 transition-all duration-500"
-            >
-              <div className="border-4 border-double border-border h-full w-full rounded-xl p-8 flex flex-col items-center justify-center text-center text-foreground bg-muted/20">
-                <Landmark className="w-16 h-16 text-muted-foreground mb-4 opacity-20" />
-                <h3 className="font-bold text-xl uppercase mb-2">Government of India</h3>
-                <h4 className="font-bold text-sm uppercase mb-6 text-muted-foreground">Ministry of Corporate Affairs</h4>
-                <div className="w-16 h-1 bg-[#a7150b] mb-6" />
-                <p className="font-serif italic text-muted-foreground mb-4">
-                  "This entity has been registered for undertaking CSR activities..."
-                </p>
-                <p className="font-bold text-lg">Reg No: CSR00002407</p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* CSR Letter Modal - FIXED: LARGE & SCROLLABLE */}
-      <AnimatePresence>
-        {isCsrLetterModalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setIsCsrLetterModalOpen(false)}
-            className="fixed inset-0 bg-black/80 z-50 backdrop-blur-sm flex items-center justify-center p-4"
+    <section className="py-20 bg-foreground text-background">
+      <div className="container mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          
+          {/* --- Left Side: Text Content --- */}
+          <motion.div 
+            initial="hidden" 
+            whileInView="visible" 
+            viewport={{ once: true }} 
+            variants={staggerContainer}
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white w-full max-w-4xl h-[90vh] rounded-2xl overflow-hidden shadow-2xl flex flex-col relative"
-              onClick={(e) => e.stopPropagation()} 
-            >
-               {/* Modal Header */}
-               <div className="flex justify-between items-center p-4 border-b bg-gray-50 z-10 shrink-0">
-                  <h3 className="font-bold text-gray-800 text-lg">Official CSR Approval Letter</h3>
-                  <button
-                    onClick={() => setIsCsrLetterModalOpen(false)}
-                    className="p-2 bg-gray-200 hover:bg-gray-300 rounded-full transition-colors text-gray-700"
-                  >
-                    <X className="w-6 h-6" />
-                  </button>
-               </div>
-              
-              {/* Scrollable Image Container */}
-              <div className="flex-1 overflow-y-auto bg-gray-100 p-0 md:p-6">
-                 <div className="bg-white shadow-lg mx-auto">
-                    <Image 
-                      src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766132506/Screenshot_2025-12-19_134112_js329n.png" 
-                      alt="Official CSR Approval Letter" 
-                      width={1000}
-                      height={1400}
-                      className="w-full h-auto block" // w-full ensures it fills the modal width, h-auto maintains aspect ratio
-                      priority
-                    />
-                 </div>
+            <div className="flex items-center gap-3 mb-4">
+              <Landmark className="w-8 h-8 text-[#ffc107]" />
+              <span className="text-[#ffc107] font-bold tracking-widest uppercase text-sm">Government of India</span>
+            </div>
+            
+            <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">Official CSR Registration</h2>
+            
+            <p className="text-background/80 text-lg mb-8 leading-relaxed">
+              Adhiparasakthi Charitable Medical Educational and Cultural Trust is officially registered with the
+              Ministry of Corporate Affairs for undertaking CSR activities.
+            </p>
+            
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div className="bg-white/10 p-4 rounded-xl border border-white/10 backdrop-blur-sm">
+                <p className="text-xs text-background/60 uppercase tracking-widest mb-1">Registration Number</p>
+                <p className="text-2xl font-mono font-bold text-[#ffc107]">CSR00002407</p>
               </div>
-            </motion.div>
+              <div className="bg-white/10 p-4 rounded-xl border border-white/10 backdrop-blur-sm">
+                <p className="text-xs text-background/60 uppercase tracking-widest mb-1">Date of Registration</p>
+                <p className="text-xl font-bold">16-04-2021</p>
+              </div>
+            </div>
           </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+
+          {/* --- Right Side: Actual CSR Letter Image --- */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10"
+          >
+            <div className="bg-white p-2">
+                <Image 
+                  src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766132506/Screenshot_2025-12-19_134112_js329n.png" 
+                  alt="Official CSR Approval Letter" 
+                  width={800}
+                  height={1000}
+                  className="w-full h-auto object-contain"
+                />
+            </div>
+            
+            {/* Optional: Overlay Badge */}
+            <div className="absolute top-4 right-4 bg-[#ffc107] text-foreground text-xs font-bold px-3 py-1 rounded-full shadow-lg flex items-center gap-1">
+              <FileText className="w-3 h-3" /> Official Document
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
+    </section>
   )
 }
 
@@ -3450,8 +3427,7 @@ function MissionVision() {
               </div>
               <h3 className="text-3xl font-serif font-bold mb-4 text-white">Our Mission</h3>
               <p className="text-white/80 text-lg leading-relaxed">
-                To provide accessible, high-quality healthcare and education to the underprivileged, ensuring that no
-                individual is denied basic human rights due to financial instability.
+              The ACMEC Trust is committed to the selfless service of humanity by managing resources with transparency and strategic foresight to deliver high-quality social welfare services
               </p>
             </div>
           </motion.div>
@@ -3463,8 +3439,7 @@ function MissionVision() {
               </div>
               <h3 className="text-3xl font-serif font-bold mb-4 text-foreground">Our Vision</h3>
               <p className="text-foreground/80 text-lg leading-relaxed font-medium">
-                A society where spiritual values and modern advancement go hand in hand, fostering a community built
-                on love, sacrifice, and mutual support.
+                To create a sustainable, inclusive society where the burdens of human suffering are alleviated through institutional excellence in healthcare, education, and cultural preservation. Our vision is to serve as a perpetual pillar of community support, governed by integrity and the spiritual principle of universal welfare—offering solace and opportunity to all, regardless of caste, creed, colour, or religion.
               </p>
             </div>
           </motion.div>
@@ -3515,164 +3490,447 @@ function Awards() {
   )
 }
 
-// ========== 7. DONATION COMPONENT ==========
+// // ========== 7. DONATION COMPONENT ==========
+// function Donation() {
+//   const [isDocModalOpen, setIsDocModalOpen] = useState(false)
+//   const [isFcraRenewalModalOpen, setIsFcraRenewalModalOpen] = useState(false)
+//   const [isOverseasModalOpen, setIsOverseasModalOpen] = useState(false)
+
+//   return (
+//     <>
+//       <section className="py-24 px-4 bg-muted/30" id="donate">
+//         <div className="container mx-auto max-w-6xl">
+//           <div className="grid md:grid-cols-2 gap-8">
+//             {/* Domestic Card */}
+//             <motion.div whileHover={{ y: -8 }} className="bg-card rounded-3xl p-8 lg:p-12 shadow-xl border border-border relative overflow-hidden flex flex-col">
+//               <div className="absolute top-0 left-0 w-full h-2 bg-[#a7150b]" />
+//               <div className="flex items-center gap-4 mb-8">
+//                 <div className="p-4 bg-red-50 rounded-2xl text-[#a7150b]"><FileText className="w-8 h-8" /></div>
+//                 <div><h3 className="text-2xl font-bold text-foreground">Domestic Donors</h3><span className="text-sm font-medium text-green-600 bg-green-100 px-3 py-1 rounded-full">80G Tax Exempt</span></div>
+//               </div>
+//               <ul className="space-y-4 mb-10 flex-1">
+//                 {["50% Tax Exemption", "Instant e-Receipt", "Digital Certificate"].map((item, i) => (
+//                   <li key={i} className="flex items-center gap-3 text-muted-foreground"><CheckCircle2 className="w-5 h-5 text-[#a7150b]" /> {item}</li>
+//                 ))}
+//               </ul>
+//               <div className="space-y-4">
+//                 <Link href="https://www.omsakthiamma.org/online_services/donations" className="block w-full"><Button className="w-full bg-[#a7150b] hover:bg-[#8a0d08] text-white h-14 text-lg rounded-xl">Donate via UPI / NetBanking</Button></Link>
+//                 <Button onClick={() => setIsDocModalOpen(true)} variant="ghost" className="w-full text-muted-foreground hover:text-[#a7150b]">View 80G Certificate</Button>
+//               </div>
+//             </motion.div>
+
+//             {/* Foreign Card */}
+//             <motion.div whileHover={{ y: -8 }} className="bg-foreground rounded-3xl p-8 lg:p-12 shadow-xl relative overflow-hidden flex flex-col text-background">
+//               <div className="absolute top-0 left-0 w-full h-2 bg-[#ffc107]" />
+//               <div className="flex items-center gap-4 mb-8">
+//                 <div className="p-4 bg-white/10 rounded-2xl text-[#ffc107]"><Globe className="w-8 h-8" /></div>
+//                 <div><h3 className="text-2xl font-bold">Foreign Donors</h3><span className="text-sm font-medium text-foreground bg-[#ffc107] px-3 py-1 rounded-full">FCRA Approved</span></div>
+//               </div>
+//               <ul className="space-y-4 mb-10 flex-1">
+//                 {["Government Approved FCRA", "International Wire Transfer", "SWIFT Transfer Support"].map((item, i) => (
+//                   <li key={i} className="flex items-center gap-3 text-background/80"><CheckCircle2 className="w-5 h-5 text-[#ffc107]" /> {item}</li>
+//                 ))}
+//               </ul>
+//               <div className="space-y-4">
+//                 <Button onClick={() => setIsOverseasModalOpen(true)} className="w-full bg-[#ffc107] hover:bg-[#e6ac00] text-foreground font-bold h-14 text-lg rounded-xl">View Overseas Donation Procedure</Button>
+//                 <Button onClick={() => setIsFcraRenewalModalOpen(true)} variant="ghost" className="w-full text-background/80 hover:text-background">View FCRA Renewal Certificate</Button>
+//               </div>
+//             </motion.div>
+//           </div>
+//         </div>
+//       </section>
+
+      
+//       {/* Donation Modals */}
+//       <AnimatePresence>
+        
+//         {/* 1. 80G Modal - NOW AN IMAGE VIEWER */}
+//         {isDocModalOpen && (
+//           <motion.div 
+//             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+//             onClick={() => setIsDocModalOpen(false)}
+//             className="fixed inset-0 bg-black/80 z-50 backdrop-blur-sm flex items-center justify-center p-4"
+//           >
+//             <motion.div 
+//               initial={{ opacity: 0, scale: 0.95 }} 
+//               animate={{ opacity: 1, scale: 1 }} 
+//               exit={{ opacity: 0, scale: 0.95 }}
+//               onClick={(e) => e.stopPropagation()}
+//               className="bg-white w-full max-w-4xl h-[90vh] rounded-2xl overflow-hidden shadow-2xl flex flex-col relative"
+//             >
+//                {/* Modal Header */}
+//                <div className="flex justify-between items-center p-4 border-b bg-gray-50 z-10 shrink-0">
+//                   <h3 className="font-bold text-gray-800 text-lg">80G Certificate</h3>
+//                   <button 
+//                     onClick={() => setIsDocModalOpen(false)} 
+//                     className="p-2 bg-gray-200 hover:bg-gray-300 rounded-full transition-colors text-gray-700"
+//                   >
+//                     <X className="w-6 h-6" />
+//                   </button>
+//                </div>
+
+//                {/* Scrollable Image Container */}
+//                <div className="flex-1 overflow-y-auto bg-gray-100 p-4 md:p-8">
+//                   <div className="bg-white shadow-lg mx-auto w-full">
+//                       {/* REPLACE WITH YOUR 80G IMAGE PATH */}
+//                       <Image 
+//                         src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766136367/80G_Ceritficate_for_Receipt_page-0001_uxlp2z.jpg" 
+//                         alt="80G Certificate" 
+//                         width={1000}
+//                         height={1400}
+//                         className="w-full h-auto block" 
+//                         priority
+//                       />
+//                   </div>
+//                </div>
+//             </motion.div>
+//           </motion.div>
+//         )}
+        
+//         {/* 2. FCRA Renewal Modal (Updated: 2 Images Vertical Scroll) */}
+//         {isFcraRenewalModalOpen && (
+//           <motion.div
+//             initial={{ opacity: 0 }}
+//             animate={{ opacity: 1 }}
+//             exit={{ opacity: 0 }}
+//             onClick={() => setIsFcraRenewalModalOpen(false)}
+//             className="fixed inset-0 bg-black/80 z-50 backdrop-blur-sm flex items-center justify-center p-4"
+//           >
+//             <motion.div
+//               initial={{ opacity: 0, scale: 0.95 }}
+//               animate={{ opacity: 1, scale: 1 }}
+//               exit={{ opacity: 0, scale: 0.95 }}
+//               className="bg-white w-full max-w-4xl h-[90vh] rounded-2xl overflow-hidden shadow-2xl flex flex-col relative"
+//               onClick={(e) => e.stopPropagation()}
+//             >
+//                {/* Modal Header */}
+//                <div className="flex justify-between items-center p-4 border-b bg-gray-50 z-10 shrink-0">
+//                   <h3 className="font-bold text-gray-800 text-lg">FCRA Renewal Certificate (2 Pages)</h3>
+//                   <button
+//                     onClick={() => setIsFcraRenewalModalOpen(false)}
+//                     className="p-2 bg-gray-200 hover:bg-gray-300 rounded-full transition-colors text-gray-700"
+//                   >
+//                     <X className="w-6 h-6" />
+//                   </button>
+//                </div>
+              
+//               {/* Scrollable Image Container */}
+//               <div className="flex-1 overflow-y-auto bg-gray-100 p-4 md:p-8">
+//                  <div className="flex flex-col gap-4 max-w-3xl mx-auto">
+//                     {/* PAGE 1 */}
+//                     <div className="bg-white shadow-lg w-full">
+//                         {/* REPLACE WITH YOUR PAGE 1 IMAGE PATH */}
+//                         <Image 
+//                           src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133511/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0001_nw5ao7.jpg" 
+//                           alt="FCRA Renewal Page 1" 
+//                           width={1000}
+//                           height={1400}
+//                           className="w-full h-auto block" 
+//                           priority
+//                         />
+//                     </div>
+                    
+//                     {/* PAGE 2 */}
+//                     <div className="bg-white shadow-lg w-full">
+//                         {/* REPLACE WITH YOUR PAGE 2 IMAGE PATH */}
+//                         <Image 
+//                           src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133704/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0002_vth9g7.jpg" 
+//                           alt="FCRA Renewal Page 2" 
+//                           width={1000}
+//                           height={1400}
+//                           className="w-full h-auto block" 
+//                         />
+//                     </div>
+//                  </div>
+//               </div>
+//             </motion.div>
+//           </motion.div>
+//         )}
+
+//         {/* 3. Overseas Donation Modal (Fixed: Scrollable + Full Info) */}
+//         {isOverseasModalOpen && (
+//           <motion.div
+//             initial={{ opacity: 0 }}
+//             animate={{ opacity: 1 }}
+//             exit={{ opacity: 0 }}
+//             onClick={() => setIsOverseasModalOpen(false)}
+//             className="fixed inset-0 bg-black/70 z-50 backdrop-blur-sm flex items-center justify-center p-4"
+//           >
+//             <motion.div
+//               initial={{ opacity: 0, scale: 0.95 }}
+//               animate={{ opacity: 1, scale: 1 }}
+//               exit={{ opacity: 0, scale: 0.95 }}
+//               className="w-full max-w-3xl h-[90vh] bg-background rounded-2xl shadow-2xl flex flex-col relative overflow-hidden"
+//               onClick={(e) => e.stopPropagation()}
+//             >
+//               {/* Header */}
+//               <div className="flex justify-between items-center p-5 border-b bg-muted z-10 shrink-0">
+//                 <h3 className="font-bold text-xl text-foreground">Overseas Donation Procedure</h3>
+//                 <button onClick={() => setIsOverseasModalOpen(false)} className="p-2 hover:bg-muted/80 rounded-full">
+//                   <X className="w-5 h-5 text-muted-foreground" />
+//                 </button>
+//               </div>
+
+//               {/* Scrollable Body */}
+//               <div className="flex-1 overflow-y-auto p-8">
+//                 <div className="bg-yellow-50 border-l-4 border-[#ffc107] p-4 mb-6 text-sm">
+//                   <p className="font-bold mb-1 text-yellow-800">Important Note:</p>
+//                   <p className="text-black">
+//                     Donations can be done only through Wire Transfer to the specified Bank Account. UPI/NEFT/RTGS from
+//                     Indian banks are restricted.
+//                   </p>
+//                 </div>
+
+//                 <h4 className="font-bold text-lg mb-4 flex items-center gap-2 text-foreground">
+//                   <Building2 className="w-5 h-5 text-[#a7150b]" /> Wire Transfer Details
+//                 </h4>
+//                 <div className="bg-muted rounded-xl p-6 border border-border space-y-3 font-mono text-sm mb-8">
+//                   <div className="flex flex-col sm:flex-row sm:justify-between border-b border-border pb-2">
+//                     <span className="text-muted-foreground font-sans">Account Name</span>
+//                     <span className="font-bold text-right text-foreground">
+//                       Adhiparasakthi Charitable Medical Educational and Cultural Trust
+//                     </span>
+//                   </div>
+//                   <div className="flex justify-between border-b border-border pb-2">
+//                     <span className="text-muted-foreground font-sans">Account No</span>
+//                     <span className="font-bold text-lg text-foreground">40209740361</span>
+//                   </div>
+//                   <div className="flex justify-between border-b border-border pb-2">
+//                     <span className="text-muted-foreground font-sans">Bank Name</span>
+//                     <span className="font-bold text-foreground">State Bank of India</span>
+//                   </div>
+//                   <div className="flex justify-between border-b border-border pb-2">
+//                     <span className="text-muted-foreground font-sans">Branch</span>
+//                     <span className="font-bold text-foreground">New Delhi Main Branch (Code: 00691)</span>
+//                   </div>
+//                   <div className="flex justify-between pt-1">
+//                     <span className="text-muted-foreground font-sans">SWIFT Code</span>
+//                     <span className="font-bold bg-yellow-100 px-2 rounded text-black">SBININBB104</span>
+//                   </div>
+//                 </div>
+
+//                 <h4 className="font-bold text-lg mb-4 flex items-center gap-2 text-foreground">
+//                   <Mail className="w-5 h-5 text-[#a7150b]" /> Mandatory Reporting
+//                 </h4>
+//                 <p className="text-sm text-muted-foreground mb-4">
+//                   On successful transfer, kindly share the following details +{" "}
+//                   <strong>Passport Copy (Front & Back)</strong> to{" "}
+//                   <span className="font-bold text-foreground">acmectrust@gmail.com</span>:
+//                 </p>
+//                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm font-medium text-foreground bg-muted p-4 rounded-lg">
+//                   <li>1. Name of Donor</li>
+//                   <li>2. Donor Address</li>
+//                   <li>3. Purpose of Remittance</li>
+//                   <li>4. Country of Donor</li>
+//                   <li>5. Currency & Amount</li>
+//                   <li>6. ID Proof (Passport)</li>
+//                 </ul>
+//               </div>
+
+//               {/* Footer */}
+//               <div className="p-4 bg-muted border-t flex justify-end gap-3 shrink-0">
+//                 <Button variant="outline" onClick={() => setIsOverseasModalOpen(false)}>
+//                   Close
+//                 </Button>
+//                 <Button className="bg-foreground text-background hover:bg-foreground/90">Copy Bank Details</Button>
+//               </div>
+//             </motion.div>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//     </>
+//   )
+// }
+// ========== 7. DONATION COMPONENT (UPDATED CONTENT) ==========
 function Donation() {
-  const [isDocModalOpen, setIsDocModalOpen] = useState(false)
-  const [isFcraRenewalModalOpen, setIsFcraRenewalModalOpen] = useState(false)
   const [isOverseasModalOpen, setIsOverseasModalOpen] = useState(false)
 
   return (
     <>
       <section className="py-24 px-4 bg-muted/30" id="donate">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Domestic Card */}
-            <motion.div whileHover={{ y: -8 }} className="bg-card rounded-3xl p-8 lg:p-12 shadow-xl border border-border relative overflow-hidden flex flex-col">
+          
+          {/* ================= NEW SECTION: WHY WE NEED DONATION ================= */}
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-2">
+              <HeartHandshake className="w-4 h-4" />
+              <span>Join Our Mission</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Empowering Lives, Creating Impact
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              We have created meaningful impacts in rural education and healthcare. 
+              Your contribution helps us sustain these efforts. Join us and empower the mission to help the needy—every rupee counts towards building a better future.
+            </p>
+          </div>
+
+          {/* ================= SECTION 1: DONATION CARDS ================= */}
+          <div className="grid md:grid-cols-2 gap-8 items-start mb-20">
+            
+            {/* --- Domestic Donors Card (UPDATED CONTENT) --- */}
+            <motion.div 
+              whileHover={{ y: -5 }} 
+              className="bg-card rounded-3xl p-8 lg:p-10 shadow-xl border border-border relative overflow-hidden flex flex-col h-full"
+            >
               <div className="absolute top-0 left-0 w-full h-2 bg-[#a7150b]" />
-              <div className="flex items-center gap-4 mb-8">
-                <div className="p-4 bg-red-50 rounded-2xl text-[#a7150b]"><FileText className="w-8 h-8" /></div>
-                <div><h3 className="text-2xl font-bold text-foreground">Domestic Donors</h3><span className="text-sm font-medium text-green-600 bg-green-100 px-3 py-1 rounded-full">80G Tax Exempt</span></div>
+              
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-4 bg-red-50 rounded-2xl text-[#a7150b]">
+                  <FileText className="w-8 h-8" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-foreground">Domestic Donors</h3>
+                  <span className="text-sm font-medium text-green-600 bg-green-100 px-3 py-1 rounded-full">
+                    Indian Citizens Only
+                  </span>
+                </div>
               </div>
-              <ul className="space-y-4 mb-10 flex-1">
-                {["50% Tax Exemption", "Instant e-Receipt", "Digital Certificate"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-muted-foreground"><CheckCircle2 className="w-5 h-5 text-[#a7150b]" /> {item}</li>
-                ))}
-              </ul>
-              <div className="space-y-4">
-                <Link href="https://www.omsakthiamma.org/online_services/donations" className="block w-full"><Button className="w-full bg-[#a7150b] hover:bg-[#8a0d08] text-white h-14 text-lg rounded-xl">Donate via UPI / NetBanking</Button></Link>
-                <Button onClick={() => setIsDocModalOpen(true)} variant="ghost" className="w-full text-muted-foreground hover:text-[#a7150b]">View 80G Certificate</Button>
+
+              {/* Updated Content based on 80G Reference */}
+              <div className="space-y-4 mb-8 flex-1">
+                <p className="text-muted-foreground">
+                  Maximize your philanthropic impact while saving on taxes. Your contributions support vital education and rural development initiatives.
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    "Eligible for Section 80G Tax Exemption",
+                    "Valid Receipt with PAN for IT Returns",
+                    "Supports Education & Rural Development"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-foreground font-medium">
+                      <CheckCircle2 className="w-5 h-5 text-[#a7150b] shrink-0" /> {item}
+                    </li>
+                  ))}
+                </ul>
+                
+                {/* Note from Reference Document */}
+                <div className="bg-red-50 border border-red-100 rounded-lg p-3 flex gap-2 text-xs text-red-800">
+                   <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                   <p>Note: As per Govt regulations, cash donations exceeding ₹2,000 are not eligible for 80G deduction. Please use digital modes.</p>
+                </div>
               </div>
+
+              <Link href="https://www.omsakthiamma.org/online_services/donations" className="block w-full mt-auto">
+                <Button className="w-full bg-[#a7150b] hover:bg-[#8a0d08] text-white h-14 text-lg rounded-xl shadow-md transition-all hover:scale-[1.02]">
+                  Donate via UPI / NetBanking
+                </Button>
+              </Link>
             </motion.div>
 
-            {/* Foreign Card */}
-            <motion.div whileHover={{ y: -8 }} className="bg-foreground rounded-3xl p-8 lg:p-12 shadow-xl relative overflow-hidden flex flex-col text-background">
+
+            {/* --- Foreign Donors Card (CONTENT UNCHANGED) --- */}
+            <motion.div 
+              whileHover={{ y: -5 }} 
+              className="bg-foreground rounded-3xl p-8 lg:p-10 shadow-xl relative overflow-hidden flex flex-col text-background h-full"
+            >
               <div className="absolute top-0 left-0 w-full h-2 bg-[#ffc107]" />
+              
               <div className="flex items-center gap-4 mb-8">
-                <div className="p-4 bg-white/10 rounded-2xl text-[#ffc107]"><Globe className="w-8 h-8" /></div>
-                <div><h3 className="text-2xl font-bold">Foreign Donors</h3><span className="text-sm font-medium text-foreground bg-[#ffc107] px-3 py-1 rounded-full">FCRA Approved</span></div>
+                <div className="p-4 bg-white/10 rounded-2xl text-[#ffc107]">
+                  <Globe className="w-8 h-8" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold">Foreign Donors</h3>
+                  <span className="text-sm font-medium text-foreground bg-[#ffc107] px-3 py-1 rounded-full">
+                    FCRA Approved
+                  </span>
+                </div>
               </div>
-              <ul className="space-y-4 mb-10 flex-1">
+
+              <ul className="space-y-3 mb-8 flex-1">
                 {["Government Approved FCRA", "International Wire Transfer", "SWIFT Transfer Support"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-background/80"><CheckCircle2 className="w-5 h-5 text-[#ffc107]" /> {item}</li>
+                  <li key={i} className="flex items-center gap-3 text-background/80">
+                    <CheckCircle2 className="w-5 h-5 text-[#ffc107]" /> {item}
+                  </li>
                 ))}
               </ul>
-              <div className="space-y-4">
-                <Button onClick={() => setIsOverseasModalOpen(true)} className="w-full bg-[#ffc107] hover:bg-[#e6ac00] text-foreground font-bold h-14 text-lg rounded-xl">View Overseas Donation Procedure</Button>
-                <Button onClick={() => setIsFcraRenewalModalOpen(true)} variant="ghost" className="w-full text-background/80 hover:text-background">View FCRA Renewal Certificate</Button>
+
+              {/* ACTION: View Procedure Button (Yellow) */}
+              <div className="mt-auto">
+                <Button 
+                  onClick={() => setIsOverseasModalOpen(true)} 
+                  className="w-full bg-[#ffc107] hover:bg-[#e6ac00] text-foreground font-bold h-14 text-lg rounded-xl shadow-md transition-all hover:scale-[1.02]"
+                >
+                  View Overseas Donation Procedure
+                </Button>
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
 
-      
-      {/* Donation Modals */}
-      <AnimatePresence>
-        
-        {/* 1. 80G Modal - NOW AN IMAGE VIEWER */}
-        {isDocModalOpen && (
-          <motion.div 
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            onClick={() => setIsDocModalOpen(false)}
-            className="fixed inset-0 bg-black/80 z-50 backdrop-blur-sm flex items-center justify-center p-4"
-          >
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }} 
-              animate={{ opacity: 1, scale: 1 }} 
-              exit={{ opacity: 0, scale: 0.95 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white w-full max-w-4xl h-[90vh] rounded-2xl overflow-hidden shadow-2xl flex flex-col relative"
-            >
-               {/* Modal Header */}
-               <div className="flex justify-between items-center p-4 border-b bg-gray-50 z-10 shrink-0">
-                  <h3 className="font-bold text-gray-800 text-lg">80G Certificate</h3>
-                  <button 
-                    onClick={() => setIsDocModalOpen(false)} 
-                    className="p-2 bg-gray-200 hover:bg-gray-300 rounded-full transition-colors text-gray-700"
-                  >
-                    <X className="w-6 h-6" />
-                  </button>
+
+          {/* ================= SECTION 2: CERTIFICATE IMAGES ================= */}
+          <div className="space-y-16">
+            
+            <div className="flex items-center justify-center gap-3">
+               <ShieldCheck className="w-8 h-8 text-primary" />
+               <h2 className="text-3xl font-bold text-center text-foreground">Legal Certificates & Documents</h2>
+            </div>
+
+            {/* 1. 80G Certificate (Domestic) */}
+            <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg border border-border">
+               <div className="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
+                  <FileText className="w-6 h-6 text-[#a7150b]" />
+                  <h3 className="text-xl font-bold text-foreground">80G Tax Exemption Certificate (Domestic)</h3>
+               </div>
+               
+               <div className="flex justify-center bg-gray-50 rounded-xl p-4 border border-gray-100">
+                  <Image 
+                    src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766169266/Screenshot_2025-12-20_000354_vxwwyc.png" 
+                    alt="80G Certificate" 
+                    width={800} 
+                    height={1000}
+                    className="w-full max-w-3xl h-auto shadow-sm" 
+                  />
+               </div>
+            </div>
+
+            {/* 2. FCRA Certificates (Foreign) */}
+            <div className="bg-slate-900 rounded-3xl p-8 lg:p-12 shadow-lg relative overflow-hidden text-white">
+               <div className="absolute top-0 left-0 w-full h-2 bg-[#ffc107]" />
+               
+               <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-4">
+                  <Globe className="w-6 h-6 text-[#ffc107]" />
+                  <h3 className="text-xl font-bold">FCRA Renewal Certificate (Foreign)</h3>
                </div>
 
-               {/* Scrollable Image Container */}
-               <div className="flex-1 overflow-y-auto bg-gray-100 p-4 md:p-8">
-                  <div className="bg-white shadow-lg mx-auto w-full">
-                      {/* REPLACE WITH YOUR 80G IMAGE PATH */}
-                      <Image 
-                        src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766136367/80G_Ceritficate_for_Receipt_page-0001_uxlp2z.jpg" 
-                        alt="80G Certificate" 
-                        width={1000}
-                        height={1400}
-                        className="w-full h-auto block" 
-                        priority
-                      />
-                  </div>
-               </div>
-            </motion.div>
-          </motion.div>
-        )}
-        
-        {/* 2. FCRA Renewal Modal (Updated: 2 Images Vertical Scroll) */}
-        {isFcraRenewalModalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setIsFcraRenewalModalOpen(false)}
-            className="fixed inset-0 bg-black/80 z-50 backdrop-blur-sm flex items-center justify-center p-4"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white w-full max-w-4xl h-[90vh] rounded-2xl overflow-hidden shadow-2xl flex flex-col relative"
-              onClick={(e) => e.stopPropagation()}
-            >
-               {/* Modal Header */}
-               <div className="flex justify-between items-center p-4 border-b bg-gray-50 z-10 shrink-0">
-                  <h3 className="font-bold text-gray-800 text-lg">FCRA Renewal Certificate (2 Pages)</h3>
-                  <button
-                    onClick={() => setIsFcraRenewalModalOpen(false)}
-                    className="p-2 bg-gray-200 hover:bg-gray-300 rounded-full transition-colors text-gray-700"
-                  >
-                    <X className="w-6 h-6" />
-                  </button>
-               </div>
-              
-              {/* Scrollable Image Container */}
-              <div className="flex-1 overflow-y-auto bg-gray-100 p-4 md:p-8">
-                 <div className="flex flex-col gap-4 max-w-3xl mx-auto">
-                    {/* PAGE 1 */}
-                    <div className="bg-white shadow-lg w-full">
-                        {/* REPLACE WITH YOUR PAGE 1 IMAGE PATH */}
+               <div className="grid md:grid-cols-2 gap-8">
+                  {/* Page 1 */}
+                  <div className="space-y-3">
+                     <p className="text-sm text-center text-white/60 font-medium">Page 01</p>
+                     <div className="rounded-xl overflow-hidden border border-white/20 shadow-lg bg-white">
                         <Image 
                           src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133511/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0001_nw5ao7.jpg" 
                           alt="FCRA Renewal Page 1" 
-                          width={1000}
-                          height={1400}
-                          className="w-full h-auto block" 
-                          priority
+                          width={600}
+                          height={800}
+                          className="w-full h-auto" 
                         />
-                    </div>
-                    
-                    {/* PAGE 2 */}
-                    <div className="bg-white shadow-lg w-full">
-                        {/* REPLACE WITH YOUR PAGE 2 IMAGE PATH */}
+                     </div>
+                  </div>
+
+                  {/* Page 2 */}
+                  <div className="space-y-3">
+                     <p className="text-sm text-center text-white/60 font-medium">Page 02</p>
+                     <div className="rounded-xl overflow-hidden border border-white/20 shadow-lg bg-white">
                         <Image 
                           src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133704/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0002_vth9g7.jpg" 
                           alt="FCRA Renewal Page 2" 
-                          width={1000}
-                          height={1400}
-                          className="w-full h-auto block" 
+                          width={600}
+                          height={800}
+                          className="w-full h-auto" 
                         />
-                    </div>
-                 </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
+                     </div>
+                  </div>
+               </div>
+            </div>
+          </div>
 
-        {/* 3. Overseas Donation Modal (Fixed: Scrollable + Full Info) */}
+        </div>
+      </section>
+
+      {/* ================= MODAL FOR OVERSEAS PROCEDURE ================= */}
+      <AnimatePresence>
         {isOverseasModalOpen && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -3688,7 +3946,6 @@ function Donation() {
               className="w-full max-w-3xl h-[90vh] bg-background rounded-2xl shadow-2xl flex flex-col relative overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Header */}
               <div className="flex justify-between items-center p-5 border-b bg-muted z-10 shrink-0">
                 <h3 className="font-bold text-xl text-foreground">Overseas Donation Procedure</h3>
                 <button onClick={() => setIsOverseasModalOpen(false)} className="p-2 hover:bg-muted/80 rounded-full">
@@ -3696,7 +3953,6 @@ function Donation() {
                 </button>
               </div>
 
-              {/* Scrollable Body */}
               <div className="flex-1 overflow-y-auto p-8">
                 <div className="bg-yellow-50 border-l-4 border-[#ffc107] p-4 mb-6 text-sm">
                   <p className="font-bold mb-1 text-yellow-800">Important Note:</p>
@@ -3752,7 +4008,6 @@ function Donation() {
                 </ul>
               </div>
 
-              {/* Footer */}
               <div className="p-4 bg-muted border-t flex justify-end gap-3 shrink-0">
                 <Button variant="outline" onClick={() => setIsOverseasModalOpen(false)}>
                   Close
@@ -3767,12 +4022,12 @@ function Donation() {
   )
 }
 
-// ========== 8. CSR PROJECTS COMPONENT ==========
 function CsrProjects() {
   return (
       <section className="py-24 px-4 bg-background">
         <div className="container mx-auto space-y-24">
-          {/* Eye Camp */}
+          
+          {/* ================= PROJECT 1: EYE CAMP ================= */}
           <div>
             <div className="text-center mb-10">
               <span className="inline-block px-4 py-2 bg-[#ffc107]/10 text-[#ffc107] rounded-full text-xs font-bold tracking-widest uppercase mb-4">
@@ -3781,12 +4036,16 @@ function CsrProjects() {
               <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">Free Eye Camp</h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* UPDATED: 
+               1. Kept 'grid-cols-2' (2 images per row).
+               2. Added 'max-w-4xl mx-auto' to restrict width -> Makes images smaller!
+            */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {[
-                "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=2070&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1551601651-2a8555f1a136?q=80&w=2047&auto=format&fit=crop",
+                "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164830/097A1993_anatnz.jpg",
+                "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164805/097A1516_sodl4z.jpg",
+                "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164845/097A1597_wxps2o.jpg",
+                "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164797/097A1504_nn9vgr.jpg",
               ].map((imgSrc, idx) => (
                 <motion.div
                   key={idx}
@@ -3794,14 +4053,15 @@ function CsrProjects() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  whileHover={{ y: -10 }}
-                  className="relative h-64 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer group"
+                  whileHover={{ y: -5 }}
+                  // Kept aspect-square for a neat box shape
+                  className="relative w-full aspect-square rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all cursor-pointer group"
                 >
                   <Image
                     src={imgSrc || "/placeholder.svg"}
                     alt={`Eye Camp Image ${idx + 1}`}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="object-fill transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
                 </motion.div>
@@ -3809,7 +4069,7 @@ function CsrProjects() {
             </div>
           </div>
           
-           {/* Endoscope Project */}
+           {/* ================= PROJECT 2: ENDOSCOPE MACHINE ================= */}
           <div>
             <div className="text-center mb-10">
               <span className="inline-block px-4 py-2 bg-[#a7150b]/10 text-[#a7150b] rounded-full text-xs font-bold tracking-widest uppercase mb-4">
@@ -3818,7 +4078,8 @@ function CsrProjects() {
               <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">Endoscope Machine by ICICI</h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Same layout for consistency */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {[
                 "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093845/IMG-20231206-WA0012_hysx3l.jpg",
                 "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093847/IMG-20231206-WA0054_nc25ip.jpg",
@@ -3831,8 +4092,8 @@ function CsrProjects() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  whileHover={{ y: -10 }}
-                  className="relative h-64 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer group"
+                  whileHover={{ y: -5 }}
+                  className="relative w-full aspect-square rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all cursor-pointer group"
                 >
                   <Image
                     src={imgSrc || "/placeholder.svg"}

@@ -281,7 +281,7 @@ import { Button } from "@/components/ui/button"
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About the trust", href: "/about-us" },
-  { label: "80G", href: "/80g" },
+  { label: "Donate", href: "/80g-donate" },
   { label: "CSR", href: "/csr" },
   { label: "Educational Institution", href: "/educational-institution" },
   // { label: "Donate", href: "/donate-us" },

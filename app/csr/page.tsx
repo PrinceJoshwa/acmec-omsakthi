@@ -523,6 +523,91 @@ export default function CSRPage() {
         </div>
       </section>
 
+            <section className="py-24 px-4 bg-background">
+              <div className="container mx-auto space-y-24">
+                
+                {/* ================= PROJECT 1: EYE CAMP ================= */}
+                <div>
+                  <div className="text-center mb-10">
+                    <span className="inline-block px-4 py-2 bg-[#ffc107]/10 text-[#ffc107] rounded-full text-xs font-bold tracking-widest uppercase mb-4">
+                      CSR Initiative 01
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">Free Eye Camp</h2>
+                  </div>
+      
+                  {/* UPDATED: 
+                     1. Kept 'grid-cols-2' (2 images per row).
+                     2. Added 'max-w-4xl mx-auto' to restrict width -> Makes images smaller!
+                  */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    {[
+                      "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164830/097A1993_anatnz.jpg",
+                      "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164805/097A1516_sodl4z.jpg",
+                      "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164845/097A1597_wxps2o.jpg",
+                      "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164797/097A1504_nn9vgr.jpg",
+                    ].map((imgSrc, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.1 }}
+                        whileHover={{ y: -5 }}
+                        // Kept aspect-square for a neat box shape
+                        className="relative w-full aspect-square rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all cursor-pointer group"
+                      >
+                        <Image
+                          src={imgSrc || "/placeholder.svg"}
+                          alt={`Eye Camp Image ${idx + 1}`}
+                          fill
+                          className="object-fill transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+                
+                 {/* ================= PROJECT 2: ENDOSCOPE MACHINE ================= */}
+                <div>
+                  <div className="text-center mb-10">
+                    <span className="inline-block px-4 py-2 bg-[#a7150b]/10 text-[#a7150b] rounded-full text-xs font-bold tracking-widest uppercase mb-4">
+                      CSR Initiative 02
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">Endoscope Machine by ICICI</h2>
+                  </div>
+      
+                  {/* Same layout for consistency */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    {[
+                      "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093845/IMG-20231206-WA0012_hysx3l.jpg",
+                      "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093847/IMG-20231206-WA0054_nc25ip.jpg",
+                      "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093844/IMG-20231206-WA0048_poj4kh.jpg",
+                      "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093825/IMG-20231206-WA0018_ipotnj.jpg",
+                    ].map((imgSrc, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.1 }}
+                        whileHover={{ y: -5 }}
+                        className="relative w-full aspect-square rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all cursor-pointer group"
+                      >
+                        <Image
+                          src={imgSrc || "/placeholder.svg"}
+                          alt={`Endoscope Project Image ${idx + 1}`}
+                          fill
+                          className="object-fill transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
       {/* ================= CONTACT FORM ================= */}
       <section className="py-24 px-4 container mx-auto" id="contact">
          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100">

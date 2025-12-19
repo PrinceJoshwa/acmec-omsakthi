@@ -232,6 +232,7 @@ export default function EightyGPage() {
           </motion.div>
         )}
       </AnimatePresence>
+      
 
     </main>
   )

@@ -806,14 +806,14 @@ export default function AboutUsPage() {
                      <Globe className="w-8 h-8 text-[#ffc107]" />
                      <h2 className="text-3xl font-serif font-bold text-white">Growth of the Trust</h2>
                   </div>
-                  <div className="space-y-6 text-gray-300 leading-relaxed text-lg text-justify">
-                     <p>
+                  <div className="space-y-6 text-gray-500 leading-relaxed text-lg text-justify">
+                     <p className="text-gray-400">
                         From its humble beginnings, ACMEC Trust has grown significantly, now operating with a substantial capital fund and renowned for its philanthropic activities across India and globally.
                      </p>
-                     <p>
+                     <p className="text-gray-400">
                         The Trust manages <span className="text-white font-bold">7,200 worship centers (micro-units)</span> in countries including Sri Lanka, Singapore, Malaysia, UAE, UK, France, Switzerland, USA, Canada, and Australia.
                      </p>
-                     <p>
+                     <p className="text-gray-400">
                         The Trust’s activities have notably improved the standard of living for the residents of the <span className="text-[#ffc107]">750 villages</span> surrounding Melmaruvathur. Its educational institutions, established in Kalavai, Vellore District, have also significantly benefitted the local population by providing quality education and employment opportunities.
                      </p>
                   </div>
