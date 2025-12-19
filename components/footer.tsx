@@ -11,7 +11,7 @@
 //   return (
 //     <footer className="bg-[#1a1a1a] text-white">
 //       <div className="max-w-7xl mx-auto px-4 py-16 md:py-20">
-//         <div className="grid md:grid-cols-4 gap-8 mb-12">
+//         <div className="grid md:grid-cols-3 gap-8 mb-12">
 //           {/* Logo & About */}
 //           <div className="md:col-span-1">
 //             <div className="flex items-center gap-3 mb-6">
@@ -37,20 +37,21 @@
 //             </p>
 //           </div>
 
-//           {/* Quick Links */}
+//           {/* Quick Links (Updated to match Header) */}
 //           <div>
 //             <h3 className="font-black text-lg mb-6 text-[#ffc107]">Quick Links</h3>
 //             <ul className="space-y-2">
 //               {[
 //                 { label: "Home", href: "/" },
-//                 { label: "About Us", href: "/about-us" },
-//                 { label: "Organisation", href: "/organisation" },
-//                 { label: "Trust Activities", href: "/trust-activities" },
+//                 { label: "80G", href: "/80g" },
+//                 { label: "CSR", href: "/csr" },
+//                 { label: "Educational Institution", href: "/educational-institution" },
+//                 { label: "Donate", href: "/donate-us" },
 //               ].map((link) => (
 //                 <li key={link.label}>
 //                   <Link
 //                     href={link.href}
-//                     className="text-gray-400 hover:text-[#ffc107] transition-colors text-sm font-medium hover:pl-2 transition-all duration-300"
+//                     className="text-gray-400 hover:text-[#ffc107] transition-colors text-sm font-medium hover:pl-2 transition-all duration-300 block"
 //                   >
 //                     {link.label}
 //                   </Link>
@@ -60,8 +61,8 @@
 //           </div>
 
 //           {/* Services */}
-//           <div>
-//             <h3 className="font-black text-lg mb-6 text-[#ffc107]">Our Services</h3>
+//           {/* <div>
+//             <h3 className="font-black text-lg mb-6 text-[#ffc107]">Our Impact</h3>
 //             <ul className="space-y-2">
 //               {["Healthcare Services", "Educational Programs", "Cultural Activities", "Community Outreach"].map(
 //                 (service) => (
@@ -71,7 +72,7 @@
 //                 ),
 //               )}
 //             </ul>
-//           </div>
+//           </div> */}
 
 //           {/* Contact */}
 //           <div>
@@ -108,14 +109,18 @@
 //           <p className="text-gray-400 text-sm text-center md:text-left font-medium">
 //             © {currentYear} ACMEC Trust. All rights reserved.
 //           </p>
-//           {/* <p className="text-gray-400 text-sm flex items-center gap-2 font-medium">
-//             Made with <Heart className="w-4 h-4 text-[#a7150b] fill-current" /> for humanity
-//           </p> */}
+//           <div className="flex gap-4">
+//              {/* Social placeholders if needed */}
+//              <Facebook className="w-5 h-5 text-gray-400 hover:text-[#ffc107] cursor-pointer transition-colors" />
+//              <Twitter className="w-5 h-5 text-gray-400 hover:text-[#ffc107] cursor-pointer transition-colors" />
+//              <Instagram className="w-5 h-5 text-gray-400 hover:text-[#ffc107] cursor-pointer transition-colors" />
+//           </div>
 //         </div>
 //       </div>
 //     </footer>
 //   )
 // }
+
 "use client"
 
 import Link from "next/link"
@@ -155,12 +160,13 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links (Updated to match Header) */}
+          {/* Quick Links */}
           <div>
             <h3 className="font-black text-lg mb-6 text-[#ffc107]">Quick Links</h3>
             <ul className="space-y-2">
               {[
                 { label: "Home", href: "/" },
+                { label: "About Us", href: "/about-us" },
                 { label: "80G", href: "/80g" },
                 { label: "CSR", href: "/csr" },
                 { label: "Educational Institution", href: "/educational-institution" },
@@ -178,27 +184,17 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
-          {/* <div>
-            <h3 className="font-black text-lg mb-6 text-[#ffc107]">Our Impact</h3>
-            <ul className="space-y-2">
-              {["Healthcare Services", "Educational Programs", "Cultural Activities", "Community Outreach"].map(
-                (service) => (
-                  <li key={service}>
-                    <p className="text-gray-400 text-sm font-medium">{service}</p>
-                  </li>
-                ),
-              )}
-            </ul>
-          </div> */}
-
           {/* Contact */}
           <div>
             <h3 className="font-black text-lg mb-6 text-[#ffc107]">Contact Us</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 mt-1 text-[#ffc107] shrink-0" />
-                <p className="text-gray-400 text-sm font-medium">Melmaruvathur, Tamil Nadu, India</p>
+                <MapPin className="w-5 h-5 mt-1 text-[#ffc107] shrink-0" />
+                <p className="text-gray-400 text-sm font-medium leading-relaxed">
+                  No.1 GST Road, Adhiparasakthi Siddhar Peedam Temple Campus, <br/>
+                  Melmaruvathur, Chengalpet District, <br/>
+                  TamilNadu-603319, India
+                </p>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-[#ffc107]" />
@@ -228,7 +224,6 @@ export default function Footer() {
             © {currentYear} ACMEC Trust. All rights reserved.
           </p>
           <div className="flex gap-4">
-             {/* Social placeholders if needed */}
              <Facebook className="w-5 h-5 text-gray-400 hover:text-[#ffc107] cursor-pointer transition-colors" />
              <Twitter className="w-5 h-5 text-gray-400 hover:text-[#ffc107] cursor-pointer transition-colors" />
              <Instagram className="w-5 h-5 text-gray-400 hover:text-[#ffc107] cursor-pointer transition-colors" />
