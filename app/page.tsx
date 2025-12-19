@@ -3815,7 +3815,7 @@ function CsrProjects() {
               <span className="inline-block px-4 py-2 bg-[#a7150b]/10 text-[#a7150b] rounded-full text-xs font-bold tracking-widest uppercase mb-4">
                 CSR Initiative 02
               </span>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">Endoscope Project</h2>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">Endoscope Machine by ICICI</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
