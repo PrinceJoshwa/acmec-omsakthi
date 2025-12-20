@@ -365,7 +365,7 @@ export default function CSRPage() {
                <span className="text-[#a7150b]">Responsibility</span>
             </motion.h1>
             <motion.p variants={fadeInUp} className="text-gray-300 max-w-2xl mx-auto text-lg leading-relaxed">
-              Channel your company's generosity into causes that echo with your values. Partner with ASPWCT to uplift women empowerment and social welfare.
+              Channel your company's generosity into causes that echo with your values. Partner with ACMEC to uplift women empowerment and social welfare.
             </motion.p>
           </motion.div>
         </div>
@@ -388,7 +388,7 @@ export default function CSRPage() {
                    Empowered by the <br/>Ministry of Corporate Affairs
                 </h2>
                 <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                   The <strong>Adhiparasakthi Siddhar Peeda Women's Charitable Trust (ASPWCT)</strong> is officially authorized to undertake CSR activities under Section 135 of the Companies (Amendment) Act, 2014.
+                   The <strong>Adhiparasakthi Siddhar Peeda Women's Charitable Trust (ACMEC)</strong> is officially authorized to undertake CSR activities under Section 135 of the Companies (Amendment) Act, 2014.
                 </p>
                 
                 <div className="grid sm:grid-cols-2 gap-4 mb-8">
@@ -410,12 +410,12 @@ export default function CSRPage() {
                    >
                       <FileText className="w-5 h-5 mr-2" /> View CSR Approval
                    </Button>
-                   <Button 
+                   {/* <Button 
                       onClick={() => setIsFcraRenewalModalOpen(true)} 
                       className="bg-[#a7150b] text-white hover:bg-[#8a0d08] rounded-full px-6 py-6 font-bold flex-1"
                    >
                       <Globe className="w-5 h-5 mr-2" /> View FCRA Certificate
-                   </Button>
+                   </Button> */}
                 </div>
 
                 <div className="flex flex-wrap gap-4">
@@ -438,11 +438,11 @@ export default function CSRPage() {
              >
                 <div className="bg-[#1a1a1a] rounded-3xl p-8 text-white relative z-10 shadow-2xl">
                    <Lightbulb className="w-12 h-12 text-[#ffc107] mb-6" />
-                   <h3 className="text-2xl font-bold mb-4">Why Partner with ASPWCT?</h3>
+                   <h3 className="text-2xl font-bold mb-4">Why Partner with ACMEC?</h3>
                    <ul className="space-y-4">
                       <li className="flex gap-3">
                          <div className="w-6 h-6 rounded-full bg-[#ffc107] text-black flex items-center justify-center font-bold text-sm shrink-0">1</div>
-                         <p className="text-gray-300">ASPWCT has always stood its ground on transparency and accountability.</p>
+                         <p className="text-gray-300">ACMEC has always stood its ground on transparency and accountability.</p>
                       </li>
                       <li className="flex gap-3">
                          <div className="w-6 h-6 rounded-full bg-[#ffc107] text-black flex items-center justify-center font-bold text-sm shrink-0">2</div>
@@ -528,6 +528,11 @@ export default function CSRPage() {
                 
                 {/* ================= PROJECT 1: EYE CAMP ================= */}
                 <div>
+                  <div>
+                  <h2 className="text-4xl mb-5 text-center md:text-5xl font-serif font-bold text-foreground">ACMEC CSR Activities</h2>
+
+                  </div>
+
                   <div className="text-center mb-10">
                     <span className="inline-block px-4 py-2 bg-[#ffc107]/10 text-[#ffc107] rounded-full text-xs font-bold tracking-widest uppercase mb-4">
                       CSR Initiative 01
@@ -619,7 +624,7 @@ export default function CSRPage() {
                      <Handshake className="w-16 h-16 text-[#ffc107] mb-8" />
                      <h3 className="text-3xl font-serif font-bold mb-4">Partner With Us</h3>
                      <p className="text-white/80 mb-8 leading-relaxed">
-                        Complete this form to start a conversation about how your organization can meet its CSR objectives with ASPWCT.
+                        Complete this form to start a conversation about how your organization can meet its CSR objectives with ACMEC.
                      </p>
                   </div>
                   

@@ -158,6 +158,15 @@ export default function Footer() {
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
               Empowering communities through healthcare, education, and cultural preservation.
             </p>
+            <a 
+              href="https://www.omsakthiamma.org" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#ffc107]/10 hover:bg-[#ffc107]/20 border border-[#ffc107]/30 rounded-lg text-[#ffc107] text-sm font-medium transition-all hover:scale-105"
+            >
+              🙏 Visit Temple Website
+              <span className="text-xs text-gray-400">www.omsakthiamma.org</span>
+            </a>
           </div>
 
           {/* Quick Links */}
@@ -167,7 +176,6 @@ export default function Footer() {
               {[
                 { label: "Home", href: "/" },
                 { label: "About Us", href: "/about-us" },
-                { label: "80G", href: "/80g" },
                 { label: "CSR", href: "/csr" },
                 { label: "Educational Institution", href: "/educational-institution" },
                 { label: "Donate", href: "/donate-us" },
