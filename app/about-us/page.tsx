@@ -207,7 +207,7 @@
 // // //             viewport={{ once: true }}
 // // //             className="text-center mt-16"
 // // //           >
-// // //             <Link href="/donate-us">
+// // //             <Link href="https://donations.acmectrust.org/donate-category/">
 // // //               <Button
 // // //                 size="lg"
 // // //                 className="bg-white text-[#a7150b] hover:bg-gray-100 rounded-full font-black text-lg px-10 py-7 shadow-2xl hover:scale-105 transition-all"

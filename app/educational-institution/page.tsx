@@ -627,7 +627,7 @@ export default function EducationalInstitutionPage() {
                <p className="text-white/80 max-w-2xl mx-auto mb-10 text-lg">
                   Your contributions help us provide quality education and infrastructure to students from all walks of life.
                </p>
-               <Link href="/donate-us">
+               <Link href="https://donations.acmectrust.org/donate-category/">
                   <Button className="bg-[#ffc107] hover:bg-[#e6ac00] text-[#1a1a1a] font-bold text-lg px-8 py-6 rounded-full shadow-lg">
                      Donate Now <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>

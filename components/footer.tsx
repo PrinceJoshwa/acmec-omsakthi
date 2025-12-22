@@ -46,7 +46,7 @@
 // //                 { label: "80G", href: "/80g" },
 // //                 { label: "CSR", href: "/csr" },
 // //                 { label: "Educational Institution", href: "/educational-institution" },
-// //                 { label: "Donate", href: "/donate-us" },
+// //                 { label: "Donate", href: "https://donations.acmectrust.org/donate-category/" },
 // //               ].map((link) => (
 // //                 <li key={link.label}>
 // //                   <Link
@@ -178,7 +178,7 @@
 //                 { label: "About Us", href: "/about-us" },
 //                 { label: "CSR", href: "/csr" },
 //                 { label: "Educational Institution", href: "/educational-institution" },
-//                 { label: "Donate", href: "/donate-us" },
+//                 { label: "Donate", href: "https://donations.acmectrust.org/donate-category/" },
 //               ].map((link) => (
 //                 <li key={link.label}>
 //                   <Link
@@ -295,7 +295,7 @@ export default function Footer() {
               <li><Link href="/about-us" className="hover:text-[#FFC800] transition-colors">About Us</Link></li>
               <li><Link href="/csr" className="hover:text-[#FFC800] transition-colors">CSR</Link></li>
               <li><Link href="/educational-institution" className="hover:text-[#FFC800] transition-colors">Educational Institution</Link></li>
-              <li><Link href="/donate-us" className="hover:text-[#FFC800] transition-colors">Donate</Link></li>
+              <li><Link href="https://donations.acmectrust.org/donate-category/" className="hover:text-[#FFC800] transition-colors">Donate</Link></li>
             </ul>
           </div>
 

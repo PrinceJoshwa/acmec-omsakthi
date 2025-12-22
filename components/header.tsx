@@ -13,7 +13,7 @@
 // //   { label: "Organisation", href: "/organisation" },
 // //   { label: "Trust Activities", href: "/trust-activities" },
 // //   { label: "Educational Institution", href: "/educational-institution" },
-// //   { label: "Donate Us", href: "/donate-us" },
+// //   { label: "Donate Us", href: "https://donations.acmectrust.org/donate-category/" },
 // // ]
 
 // // export default function Header() {
@@ -77,7 +77,7 @@
 
 // //           {/* Right Side Buttons */}
 // //           <div className="flex items-center gap-3">
-// //             <Link href="/donate-us" className="hidden sm:block">
+// //             <Link href="https://donations.acmectrust.org/donate-category/" className="hidden sm:block">
 // //               <Button className="bg-[#a7150b] text-white hover:bg-[#8a0d08] rounded-full font-black shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
 // //                 <Heart className="w-4 h-4 mr-2 fill-current" />
 // //                 Donate
@@ -116,7 +116,7 @@
 // //                 </Link>
 // //               ))}
 // //               <Link
-// //                 href="/donate-us"
+// //                 href="https://donations.acmectrust.org/donate-category/"
 // //                 className="block px-4 py-3 font-black text-white bg-[#a7150b] hover:bg-[#8a0d08] rounded-lg text-center mt-2 transition-colors duration-300"
 // //                 onClick={() => setMobileMenuOpen(false)}
 // //               >
@@ -147,7 +147,7 @@
 //   { label: "80G", href: "/80g" },
 //   { label: "CSR", href: "/csr" },
 //   { label: "Educational Institution", href: "/educational-institution" },
-//   // { label: "Donate", href: "/donate-us" },
+//   // { label: "Donate", href: "https://donations.acmectrust.org/donate-category/" },
 // ]
 
 // export default function Header() {
@@ -212,7 +212,7 @@
 //           {/* Right Side Buttons */}
 //           <div className="flex items-center gap-3">
 //             {/* CTA Button - kept as 'Donate' for visibility, though it is also in the menu now */}
-//             <Link href="/donate-us" className="hidden sm:block">
+//             <Link href="https://donations.acmectrust.org/donate-category/" className="hidden sm:block">
 //               <Button className="bg-[#a7150b] text-white hover:bg-[#8a0d08] rounded-full font-black shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
 //                 <Heart className="w-4 h-4 mr-2 fill-current" />
 //                 Donate
@@ -252,7 +252,7 @@
 //               ))}
 //               {/* Mobile CTA Button */}
 //               <Link
-//                 href="/donate-us"
+//                 href="https://donations.acmectrust.org/donate-category/"
 //                 className="block px-4 py-3 font-black text-white bg-[#a7150b] hover:bg-[#8a0d08] rounded-lg text-center mt-2 transition-colors duration-300"
 //                 onClick={() => setMobileMenuOpen(false)}
 //               >
@@ -285,7 +285,7 @@ const navItems = [
   { label: "CSR Donation", href: "/csr" },
   { label: "FCRA", href: "/fcra" },
   { label: "Educational Institution", href: "/educational-institution" },
-  // { label: "Donate", href: "/donate-us" },
+  // { label: "Donate", href: "https://donations.acmectrust.org/donate-category/" },
 ]
 
 export default function Header() {
@@ -359,7 +359,7 @@ export default function Header() {
           {/* Right Side Buttons */}
           <div className="flex items-center gap-3">
             {/* CTA Button */}
-            <Link href="/donate-us" className="hidden sm:block">
+            <Link href="https://donations.acmectrust.org/donate-category/" className="hidden sm:block">
               <Button className="bg-[#a7150b] text-white hover:bg-[#8a0d08] rounded-full font-black shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                 <Heart className="w-4 h-4 mr-2 fill-current" />
                 Donate
@@ -406,7 +406,7 @@ export default function Header() {
               })}
               {/* Mobile CTA Button */}
               <Link
-                href="/donate-us"
+                href="https://donations.acmectrust.org/donate-category/"
                 className="block px-4 py-3 font-black text-white bg-[#a7150b] hover:bg-[#8a0d08] rounded-lg text-center mt-2 transition-colors duration-300"
                 onClick={() => setMobileMenuOpen(false)}
               >

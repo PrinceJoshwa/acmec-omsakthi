@@ -463,7 +463,7 @@
 //             </p>
 
 //             {/* Donate Button */}
-//             <Link href="/donate-us">
+//             <Link href="https://donations.acmectrust.org/donate-category/">
 //               <Button className="w-full py-5 sm:py-6 bg-[#ffc107] hover:bg-[#e6ad00] text-[#1a1a1a] font-bold text-base sm:text-lg rounded-xl shadow-lg">
 //                 DONATE NOW →
 //               </Button>
@@ -474,7 +474,7 @@
 //               <p className="text-sm text-slate-600 mb-4 text-center leading-relaxed">
 //                 If you would like to donate for a specific purpose, please click the button below.
 //               </p>
-//               <Link href="/donate-us">
+//               <Link href="https://donations.acmectrust.org/donate-category/">
 //                 <Button
 //                   variant="outline"
 //                   className="w-full py-4 sm:py-5 border-2 border-[#a7150b] text-[#a7150b] hover:bg-[#a7150b] hover:text-white font-bold rounded-xl"
@@ -552,7 +552,7 @@
 //                   <p className="text-[#1a1a1a]/80 leading-relaxed mb-8">
 //                      Your donation helps us serve communities through healthcare, education, and cultural preservation. All donations are eligible for 80G tax benefits.
 //                   </p>
-//                   <Link href="/donate-us">
+//                   <Link href="https://donations.acmectrust.org/donate-category/">
 //                      <Button className="bg-[#a7150b] hover:bg-[#8a0d08] text-white text-lg px-10 py-6 rounded-full shadow-xl">
 //                         <Heart className="w-5 h-5 mr-2 fill-current" /> Donate Now (Indian Donors)
 //                      </Button>
@@ -1390,7 +1390,7 @@ export default function DonatePage() {
             </p>
 
             {/* Donate Button */}
-            <Link href="/donate-us">
+            <Link href="https://donations.acmectrust.org/donate-category/">
               <Button className="w-full py-5 sm:py-6 bg-[#ffc107] hover:bg-[#e6ad00] text-[#1a1a1a] font-bold text-base sm:text-lg rounded-xl shadow-lg">
                 DONATE NOW →
               </Button>
@@ -1401,7 +1401,7 @@ export default function DonatePage() {
               <p className="text-sm text-slate-600 mb-4 text-center leading-relaxed">
                 If you would like to donate for a specific purpose, please click the button below.
               </p>
-              <Link href="/donate-us">
+              <Link href="https://donations.acmectrust.org/donate-category/">
                 <Button
                   variant="outline"
                   className="w-full py-4 sm:py-5 border-2 border-[#a7150b] text-[#a7150b] hover:bg-[#a7150b] hover:text-white font-bold rounded-xl"
@@ -1544,7 +1544,7 @@ export default function DonatePage() {
                   <p className="text-[#1a1a1a]/80 leading-relaxed mb-8">
                      Your donation helps us serve communities through healthcare, education, and cultural preservation. All donations are eligible for 80G tax benefits.
                   </p>
-                  <Link href="/donate-us">
+                  <Link href="https://donations.acmectrust.org/donate-category/">
                      <Button className="bg-[#a7150b] hover:bg-[#8a0d08] text-white text-lg px-10 py-6 rounded-full shadow-xl">
                         <Heart className="w-5 h-5 mr-2 fill-current" /> Donate Now (Indian Donors)
                      </Button>
