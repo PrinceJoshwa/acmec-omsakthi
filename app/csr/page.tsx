@@ -100,7 +100,7 @@
 //                 <div className="grid sm:grid-cols-2 gap-4 mb-8">
 //                    <Card className="p-5 border-l-4 border-[#ffc107] bg-stone-50">
 //                       <p className="text-xs text-slate-500 uppercase tracking-widest mb-1 font-bold">CSR Registration No</p>
-//                       <p className="text-2xl font-mono font-bold text-[#1a1a1a]">CSR00002407</p>
+//                       <p className="text-2xl font-mono font-bold text-[#1a1a1a]">CSR00002370</p>
 //                    </Card>
 //                    <Card className="p-5 border-l-4 border-[#a7150b] bg-stone-50">
 //                       <p className="text-xs text-slate-500 uppercase tracking-widest mb-1 font-bold">Independent Auditor</p>
@@ -394,7 +394,7 @@ export default function CSRPage() {
                 <div className="grid sm:grid-cols-2 gap-4 mb-8">
                    <Card className="p-5 border-l-4 border-[#ffc107] bg-stone-50">
                       <p className="text-xs text-slate-500 uppercase tracking-widest mb-1 font-bold">CSR Registration No</p>
-                      <p className="text-2xl font-mono font-bold text-[#1a1a1a]">CSR00002407</p>
+                      <p className="text-2xl font-mono font-bold text-[#1a1a1a]">CSR00002370</p>
                    </Card>
                    <Card className="p-5 border-l-4 border-[#a7150b] bg-stone-50">
                       <p className="text-xs text-slate-500 uppercase tracking-widest mb-1 font-bold">Independent Auditor</p>
@@ -724,7 +724,7 @@ export default function CSRPage() {
           </motion.div>
         )}
 
-        {/* 2. FCRA Renewal Modal */}
+        {/* 2. FCRA Modal */}
         {isFcraRenewalModalOpen && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -741,7 +741,7 @@ export default function CSRPage() {
               className="bg-white w-full max-w-4xl h-[90vh] rounded-2xl overflow-hidden shadow-2xl flex flex-col relative"
             >
                <div className="flex justify-between items-center p-4 border-b bg-gray-50 z-10 shrink-0">
-                  <h3 className="font-bold text-gray-800 text-lg">FCRA Renewal Certificate</h3>
+                  <h3 className="font-bold text-gray-800 text-lg">FCRA Certificate</h3>
                   <button onClick={() => setIsFcraRenewalModalOpen(false)} className="p-2 bg-gray-200 hover:bg-gray-300 rounded-full transition-colors text-gray-700">
                     <X className="w-6 h-6" />
                   </button>
@@ -751,7 +751,7 @@ export default function CSRPage() {
                     <div className="bg-white shadow-lg w-full">
                         <Image 
                           src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133511/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0001_nw5ao7.jpg" 
-                          alt="FCRA Renewal Page 1" 
+                          alt="FCRA Page 1" 
                           width={1000} height={1400}
                           className="w-full h-auto block" priority
                         />
@@ -759,7 +759,7 @@ export default function CSRPage() {
                     <div className="bg-white shadow-lg w-full">
                         <Image 
                           src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133704/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0002_vth9g7.jpg" 
-                          alt="FCRA Renewal Page 2" 
+                          alt="FCRA Page 2" 
                           width={1000} height={1400}
                           className="w-full h-auto block" 
                         />

@@ -68,150 +68,183 @@ export default function DonatePage() {
         </div>
       </section>
 
-      {/* ================= DONOR TYPE SELECTION ================= */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true }} 
-            variants={fadeInUp}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1a1a1a] mb-4">
-              Where are you donating from?
-            </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
-              Please select your location to view the appropriate donation options and tax benefits.
+{/* ================= DONOR TYPE SELECTION ================= */}
+<section className="py-12 sm:py-16 bg-white">
+  <div className="container mx-auto px-4 sm:px-5">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeInUp}
+      className="text-center mb-10 sm:mb-12"
+    >
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#1a1a1a] mb-3 leading-snug">
+        Where are you donating from?
+      </h2>
+      <p className="text-slate-600 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
+        Please select your location to view the appropriate donation options and tax benefits.
+      </p>
+    </motion.div>
+
+    {/* Two Selection Cards */}
+    <div className="grid md:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto">
+
+      {/* Indian Donor Card */}
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        whileHover={{ y: -5 }}
+        onClick={() => setSelectedDonorType("indian")}
+        className={`cursor-pointer transition-all duration-300 ${
+          selectedDonorType === "indian"
+            ? "ring-4 ring-[#a7150b] ring-offset-2"
+            : "hover:shadow-xl"
+        }`}
+      >
+        <Card
+          className={`p-6 sm:p-8 h-full relative overflow-hidden ${
+            selectedDonorType === "indian"
+              ? "bg-gradient-to-br from-orange-50 to-amber-50"
+              : "bg-white"
+          }`}
+        >
+          {selectedDonorType === "indian" && (
+            <div className="absolute top-3 right-3">
+              <CheckCircle2 className="w-7 h-7 text-[#a7150b]" />
+            </div>
+          )}
+
+          <div className="text-center">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[#FF9933] via-white to-[#138808] rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg">
+              <IndianRupee className="w-8 h-8 sm:w-10 sm:h-10 text-[#1a1a1a]" />
+            </div>
+
+            <h3 className="text-xl sm:text-2xl font-bold text-[#1a1a1a] mb-1">
+              🇮🇳 Indian Donor
+            </h3>
+            <p className="text-slate-500 text-sm mb-5">
+              For donors residing in India
             </p>
-          </motion.div>
 
-          {/* Two Selection Cards */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            
-            {/* Indian Donor Card */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5 }}
-              onClick={() => setSelectedDonorType("indian")}
-              className={`cursor-pointer transition-all duration-300 ${
-                selectedDonorType === "indian" 
-                  ? "ring-4 ring-[#a7150b] ring-offset-2" 
-                  : "hover:shadow-xl"
-              }`}
-            >
-              <Card className={`p-8 h-full relative overflow-hidden ${
-                selectedDonorType === "indian" ? "bg-gradient-to-br from-orange-50 to-amber-50" : "bg-white"
-              }`}>
-                {selectedDonorType === "indian" && (
-                  <div className="absolute top-4 right-4">
-                    <CheckCircle2 className="w-8 h-8 text-[#a7150b]" />
-                  </div>
-                )}
-                
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-[#FF9933] via-white to-[#138808] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                    <IndianRupee className="w-10 h-10 text-[#1a1a1a]" />
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-[#1a1a1a] mb-2">🇮🇳 Indian Donor</h3>
-                  <p className="text-slate-500 text-sm mb-6">For donors residing in India</p>
-                  
-                  <div className="space-y-3 text-left">
-                    <div className="flex items-center gap-3 text-sm">
-                      <BadgeCheck className="w-5 h-5 text-[#a7150b] shrink-0" />
-                      <span className="text-slate-700 font-medium">80G Tax Deduction Benefits</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm">
-                      <CreditCard className="w-5 h-5 text-[#a7150b] shrink-0" />
-                      <span className="text-slate-700 font-medium">Pay via UPI, NEFT, Cards</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm">
-                      <FileText className="w-5 h-5 text-[#a7150b] shrink-0" />
-                      <span className="text-slate-700 font-medium">Immediate 80G Receipt</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-6 border-t border-stone-200">
-                  <Button 
-                    className={`w-full font-bold rounded-full h-12 ${
-                      selectedDonorType === "indian" 
-                        ? "bg-[#a7150b] hover:bg-[#8a0d08] text-white" 
-                        : "bg-stone-100 hover:bg-stone-200 text-[#1a1a1a]"
-                    }`}
-                  >
-                    {selectedDonorType === "indian" ? "✓ Selected" : "Select This Option"}
-                  </Button>
-                </div>
-              </Card>
-            </motion.div>
-
-            {/* International Donor Card */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5 }}
-              onClick={() => setSelectedDonorType("international")}
-              className={`cursor-pointer transition-all duration-300 ${
-                selectedDonorType === "international" 
-                  ? "ring-4 ring-[#0066cc] ring-offset-2" 
-                  : "hover:shadow-xl"
-              }`}
-            >
-              <Card className={`p-8 h-full relative overflow-hidden ${
-                selectedDonorType === "international" ? "bg-gradient-to-br from-blue-50 to-indigo-50" : "bg-white"
-              }`}>
-                {selectedDonorType === "international" && (
-                  <div className="absolute top-4 right-4">
-                    <CheckCircle2 className="w-8 h-8 text-[#0066cc]" />
-                  </div>
-                )}
-                
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-[#0066cc] to-[#004499] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                    <Globe className="w-10 h-10 text-white" />
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-[#1a1a1a] mb-2">🌍 International Donor</h3>
-                  <p className="text-slate-500 text-sm mb-6">For donors outside India</p>
-                  
-                  <div className="space-y-3 text-left">
-                    <div className="flex items-center gap-3 text-sm">
-                      <ShieldCheck className="w-5 h-5 text-[#0066cc] shrink-0" />
-                      <span className="text-slate-700 font-medium">FCRA Registered Trust</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm">
-                      <Building2 className="w-5 h-5 text-[#0066cc] shrink-0" />
-                      <span className="text-slate-700 font-medium">Wire Transfer (SWIFT)</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm">
-                      <FileText className="w-5 h-5 text-[#0066cc] shrink-0" />
-                      <span className="text-slate-700 font-medium">Official Donation Receipt</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-6 border-t border-stone-200">
-                  <Button 
-                    className={`w-full font-bold rounded-full h-12 ${
-                      selectedDonorType === "international" 
-                        ? "bg-[#0066cc] hover:bg-[#004499] text-white" 
-                        : "bg-stone-100 hover:bg-stone-200 text-[#1a1a1a]"
-                    }`}
-                  >
-                    {selectedDonorType === "international" ? "✓ Selected" : "Select This Option"}
-                  </Button>
-                </div>
-              </Card>
-            </motion.div>
-
+            <div className="space-y-3 text-left">
+              <div className="flex items-start gap-3 text-sm">
+                <BadgeCheck className="w-5 h-5 text-[#a7150b] shrink-0 mt-0.5" />
+                <span className="text-slate-700 font-medium">
+                  80G Tax Deduction Benefits
+                </span>
+              </div>
+              <div className="flex items-start gap-3 text-sm">
+                <CreditCard className="w-5 h-5 text-[#a7150b] shrink-0 mt-0.5" />
+                <span className="text-slate-700 font-medium">
+                  Pay via UPI, NEFT, Cards
+                </span>
+              </div>
+              <div className="flex items-start gap-3 text-sm">
+                <FileText className="w-5 h-5 text-[#a7150b] shrink-0 mt-0.5" />
+                <span className="text-slate-700 font-medium">
+                  Immediate 80G Receipt
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+
+          <div className="mt-6 pt-6 border-t border-stone-200">
+            <Button
+              className={`w-full font-bold rounded-full h-12 ${
+                selectedDonorType === "indian"
+                  ? "bg-[#a7150b] hover:bg-[#8a0d08] text-white"
+                  : "bg-stone-100 hover:bg-stone-200 text-[#1a1a1a]"
+              }`}
+            >
+              {selectedDonorType === "indian"
+                ? "✓ Selected"
+                : "Select This Option"}
+            </Button>
+          </div>
+        </Card>
+      </motion.div>
+
+      {/* International Donor Card */}
+      <motion.div
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        whileHover={{ y: -5 }}
+        onClick={() => setSelectedDonorType("international")}
+        className={`cursor-pointer transition-all duration-300 ${
+          selectedDonorType === "international"
+            ? "ring-4 ring-[#0066cc] ring-offset-2"
+            : "hover:shadow-xl"
+        }`}
+      >
+        <Card
+          className={`p-6 sm:p-8 h-full relative overflow-hidden ${
+            selectedDonorType === "international"
+              ? "bg-gradient-to-br from-blue-50 to-indigo-50"
+              : "bg-white"
+          }`}
+        >
+          {selectedDonorType === "international" && (
+            <div className="absolute top-3 right-3">
+              <CheckCircle2 className="w-7 h-7 text-[#0066cc]" />
+            </div>
+          )}
+
+          <div className="text-center">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[#0066cc] to-[#004499] rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg">
+              <Globe className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+            </div>
+
+            <h3 className="text-xl sm:text-2xl font-bold text-[#1a1a1a] mb-1">
+              🌍 International Donor
+            </h3>
+            <p className="text-slate-500 text-sm mb-5">
+              For donors outside India
+            </p>
+
+            <div className="space-y-3 text-left">
+              <div className="flex items-start gap-3 text-sm">
+                <ShieldCheck className="w-5 h-5 text-[#0066cc] shrink-0 mt-0.5" />
+                <span className="text-slate-700 font-medium">
+                  FCRA Registered Trust
+                </span>
+              </div>
+              <div className="flex items-start gap-3 text-sm">
+                <Building2 className="w-5 h-5 text-[#0066cc] shrink-0 mt-0.5" />
+                <span className="text-slate-700 font-medium">
+                  Wire Transfer (SWIFT)
+                </span>
+              </div>
+              <div className="flex items-start gap-3 text-sm">
+                <FileText className="w-5 h-5 text-[#0066cc] shrink-0 mt-0.5" />
+                <span className="text-slate-700 font-medium">
+                  Official Donation Receipt
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 pt-6 border-t border-stone-200">
+            <Button
+              className={`w-full font-bold rounded-full h-12 ${
+                selectedDonorType === "international"
+                  ? "bg-[#0066cc] hover:bg-[#004499] text-white"
+                  : "bg-stone-100 hover:bg-stone-200 text-[#1a1a1a]"
+              }`}
+            >
+              {selectedDonorType === "international"
+                ? "✓ Selected"
+                : "Select This Option"}
+            </Button>
+          </div>
+        </Card>
+      </motion.div>
+
+    </div>
+  </div>
+</section>
+
 
       {/* ================= CONTENT BASED ON SELECTION ================= */}
       <AnimatePresence mode="wait">
@@ -349,156 +382,168 @@ export default function DonatePage() {
             </section>
 
             {/* ================= DONATION AMOUNT SELECTOR ================= */}
-            <section className="py-20 bg-white">
-               <div className="container mx-auto px-4">
-                  <div className="max-w-6xl mx-auto">
-                     <motion.div 
-                        initial="hidden" 
-                        whileInView="visible" 
-                        viewport={{ once: true }} 
-                        variants={fadeInUp}
-                        className="text-center mb-12"
-                     >
-                        <span className="inline-block px-4 py-2 bg-[#a7150b]/10 text-[#a7150b] rounded-full text-xs font-bold tracking-widest uppercase mb-4">
-                           Make a Donation
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1a1a1a]">
-                           Support Our Mission
-                        </h2>
-                     </motion.div>
+            <section className="py-16 md:py-20 bg-white">
+  <div className="container mx-auto px-4 sm:px-5">
+    <div className="max-w-6xl mx-auto">
 
-                     <div className="grid lg:grid-cols-2 gap-10 items-start">
-                        
-                        {/* Left: Amount Selector */}
-                        <motion.div 
-                           initial={{ opacity: 0, x: -30 }} 
-                           whileInView={{ opacity: 1, x: 0 }} 
-                           viewport={{ once: true }}
-                        >
-                           <Card className="p-8 shadow-xl border-0 bg-gradient-to-br from-stone-50 to-white">
-                              <h3 className="text-xl font-bold text-[#1a1a1a] mb-6 text-center">Select Amount</h3>
-                              
-                              {/* Preset Amounts */}
-                              <div className="space-y-3 mb-6">
-                                 {donationAmounts.map((amount) => (
-                                    <button 
-                                       key={amount}
-                                       onClick={() => {
-                                          setSelectedAmount(amount)
-                                          setCustomAmount("")
-                                       }}
-                                       className={`w-full py-4 px-6 font-bold text-lg rounded-xl transition-all hover:scale-[1.02] ${
-                                          selectedAmount === amount && !customAmount
-                                             ? "bg-[#a7150b] text-white shadow-lg" 
-                                             : "bg-white text-[#1a1a1a] border-2 border-stone-200 hover:border-[#a7150b] hover:text-[#a7150b]"
-                                       }`}
-                                    >
-                                       INR {amount.toLocaleString('en-IN')}
-                                    </button>
-                                 ))}
-                              </div>
+      {/* Header */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+        className="text-center mb-10 md:mb-12"
+      >
+        <span className="inline-block px-4 py-2 bg-[#a7150b]/10 text-[#a7150b] rounded-full text-xs font-bold tracking-widest uppercase mb-3 md:mb-4">
+          Make a Donation
+        </span>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#1a1a1a] leading-snug">
+          Support Our Mission
+        </h2>
+      </motion.div>
 
-                              {/* Custom Amount */}
-                              <div className={`flex items-center mb-6 rounded-xl overflow-hidden border-2 transition-colors ${
-                                 customAmount ? "border-[#a7150b]" : "border-stone-200"
-                              }`}>
-                                 <div className="shrink-0 py-3 px-4 bg-stone-100 font-bold text-[#1a1a1a]">
-                                    INR
-                                 </div>
-                                 <input 
-                                    type="number" 
-                                    placeholder="Enter Custom Amount" 
-                                    value={customAmount}
-                                    onChange={(e) => {
-                                       setCustomAmount(e.target.value)
-                                       if (e.target.value) {
-                                          setSelectedAmount(0)
-                                       }
-                                    }}
-                                    className="flex-1 py-3 px-4 focus:outline-none text-lg bg-white"
-                                 />
-                              </div>
+      <div className="grid lg:grid-cols-2 gap-8 md:gap-10 items-start">
 
-                              {/* Tax Info */}
-                              <p className="text-sm text-slate-600 mb-6 text-center">
-                                 Your donations are tax exempted under <strong className="text-[#a7150b]">80G</strong> of the Indian Income Tax Act
-                              </p>
+        {/* Left: Amount Selector */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+        >
+          <Card className="p-6 sm:p-8 shadow-xl border-0 bg-gradient-to-br from-stone-50 to-white">
+            <h3 className="text-lg sm:text-xl font-bold text-[#1a1a1a] mb-5 text-center">
+              Select Amount
+            </h3>
 
-                              {/* Donate Button */}
-                              <Link href="/donate-us">
-                                 <Button className="w-full py-6 bg-[#ffc107] hover:bg-[#e6ad00] text-[#1a1a1a] font-bold text-lg rounded-xl shadow-lg">
-                                    DONATE NOW →
-                                 </Button>
-                              </Link>
+            {/* Preset Amounts */}
+            <div className="space-y-3 mb-6">
+              {donationAmounts.map((amount) => (
+                <button
+                  key={amount}
+                  onClick={() => {
+                    setSelectedAmount(amount)
+                    setCustomAmount("")
+                  }}
+                  className={`w-full py-3 sm:py-4 px-6 font-bold text-base sm:text-lg rounded-xl transition-all ${
+                    selectedAmount === amount && !customAmount
+                      ? "bg-[#a7150b] text-white shadow-lg"
+                      : "bg-white text-[#1a1a1a] border-2 border-stone-200 hover:border-[#a7150b] hover:text-[#a7150b]"
+                  }`}
+                >
+                  INR {amount.toLocaleString("en-IN")}
+                </button>
+              ))}
+            </div>
 
-                              {/* Specific Purpose Option */}
-                              <div className="mt-6 pt-6 border-t border-stone-200">
-                                 <p className="text-sm text-slate-600 mb-4 text-center">
-                                    If you would like to donate for a specific purpose, please click the button below.
-                                 </p>
-                                 <Link href="/donate-us">
-                                    <Button variant="outline" className="w-full py-5 border-2 border-[#a7150b] text-[#a7150b] hover:bg-[#a7150b] hover:text-white font-bold rounded-xl transition-all">
-                                       DONATE TO A SPECIFIC PURPOSE →
-                                    </Button>
-                                 </Link>
-                              </div>
-                           </Card>
-                        </motion.div>
+            {/* Custom Amount */}
+            <div
+              className={`flex items-center mb-6 rounded-xl overflow-hidden border-2 ${
+                customAmount ? "border-[#a7150b]" : "border-stone-200"
+              }`}
+            >
+              <div className="shrink-0 py-3 px-4 bg-stone-100 font-bold text-[#1a1a1a]">
+                INR
+              </div>
+              <input
+                type="number"
+                placeholder="Enter Custom Amount"
+                value={customAmount}
+                onChange={(e) => {
+                  setCustomAmount(e.target.value)
+                  if (e.target.value) setSelectedAmount(0)
+                }}
+                className="flex-1 py-3 px-4 focus:outline-none text-base sm:text-lg bg-white"
+              />
+            </div>
 
-                        {/* Right: Impact Statistics Carousel */}
-                        <motion.div 
-                           initial={{ opacity: 0, x: 30 }} 
-                           whileInView={{ opacity: 1, x: 0 }} 
-                           viewport={{ once: true }}
-                           className="space-y-6"
-                        >
-                           {/* Impact Card 1 - Healthcare */}
-                           <Card className="p-8 bg-gradient-to-br from-[#a7150b] to-[#8a0d08] text-white rounded-2xl shadow-xl relative overflow-hidden">
-                              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl translate-x-1/2 -translate-y-1/2" />
-                              <div className="relative z-10">
-                                 <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-                                    Healthcare
-                                 </span>
-                                 <div className="text-5xl md:text-6xl font-black mb-2">50,000+</div>
-                                 <p className="text-lg font-bold text-white/90 uppercase tracking-wide">
-                                    Patients Treated Annually at Our Hospital
-                                 </p>
-                              </div>
-                           </Card>
+            {/* Tax Info */}
+            <p className="text-sm text-slate-600 mb-6 text-center leading-relaxed">
+              Your donations are tax exempted under{" "}
+              <strong className="text-[#a7150b]">80G</strong> of the Indian Income Tax Act
+            </p>
 
-                           {/* Impact Card 2 - Education */}
-                           <Card className="p-8 bg-gradient-to-br from-[#1a1a1a] to-[#333] text-white rounded-2xl shadow-xl relative overflow-hidden">
-                              <div className="absolute top-0 right-0 w-32 h-32 bg-[#ffc107]/20 rounded-full blur-2xl translate-x-1/2 -translate-y-1/2" />
-                              <div className="relative z-10">
-                                 <span className="inline-block px-3 py-1 bg-[#ffc107]/30 text-[#ffc107] rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-                                    Education
-                                 </span>
-                                 <div className="text-5xl md:text-6xl font-black mb-2">15,000+</div>
-                                 <p className="text-lg font-bold text-white/90 uppercase tracking-wide">
-                                    Students Benefiting from Our Institutions
-                                 </p>
-                              </div>
-                           </Card>
+            {/* Donate Button */}
+            <Link href="/donate-us">
+              <Button className="w-full py-5 sm:py-6 bg-[#ffc107] hover:bg-[#e6ad00] text-[#1a1a1a] font-bold text-base sm:text-lg rounded-xl shadow-lg">
+                DONATE NOW →
+              </Button>
+            </Link>
 
-                           {/* Impact Card 3 - Community */}
-                           <Card className="p-8 bg-gradient-to-br from-[#ffc107] to-[#e6ad00] text-[#1a1a1a] rounded-2xl shadow-xl relative overflow-hidden">
-                              <div className="absolute top-0 right-0 w-32 h-32 bg-white/30 rounded-full blur-2xl translate-x-1/2 -translate-y-1/2" />
-                              <div className="relative z-10">
-                                 <span className="inline-block px-3 py-1 bg-[#1a1a1a]/20 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-                                    Community
-                                 </span>
-                                 <div className="text-5xl md:text-6xl font-black mb-2">750+</div>
-                                 <p className="text-lg font-bold text-[#1a1a1a]/80 uppercase tracking-wide">
-                                    Villages Impacted by Our Programs
-                                 </p>
-                              </div>
-                           </Card>
-                        </motion.div>
+            {/* Specific Purpose */}
+            <div className="mt-6 pt-6 border-t border-stone-200">
+              <p className="text-sm text-slate-600 mb-4 text-center leading-relaxed">
+                If you would like to donate for a specific purpose, please click the button below.
+              </p>
+              <Link href="/donate-us">
+                <Button
+                  variant="outline"
+                  className="w-full py-4 sm:py-5 border-2 border-[#a7150b] text-[#a7150b] hover:bg-[#a7150b] hover:text-white font-bold rounded-xl"
+                >
+                  DONATE TO A SPECIFIC PURPOSE →
+                </Button>
+              </Link>
+            </div>
+          </Card>
+        </motion.div>
 
-                     </div>
-                  </div>
-               </div>
-            </section>
+        {/* Right: Impact Cards */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="space-y-5 sm:space-y-6"
+        >
+          {/* Healthcare */}
+          <Card className="p-6 sm:p-8 bg-gradient-to-br from-[#a7150b] to-[#8a0d08] text-white rounded-2xl shadow-xl relative overflow-hidden">
+            <div className="relative z-10">
+              <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-xs font-bold uppercase mb-3">
+                Healthcare
+              </span>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-black mb-1">
+                50,000+
+              </div>
+              <p className="text-sm sm:text-lg font-bold text-white/90 uppercase leading-snug">
+                Patients Treated Annually
+              </p>
+            </div>
+          </Card>
+
+          {/* Education */}
+          <Card className="p-6 sm:p-8 bg-gradient-to-br from-[#1a1a1a] to-[#333] text-white rounded-2xl shadow-xl">
+            <div className="relative z-10">
+              <span className="inline-block px-3 py-1 bg-[#ffc107]/30 text-[#ffc107] rounded-full text-xs font-bold uppercase mb-3">
+                Education
+              </span>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-black mb-1">
+                15,000+
+              </div>
+              <p className="text-sm sm:text-lg font-bold text-white/90 uppercase leading-snug">
+                Students Benefited
+              </p>
+            </div>
+          </Card>
+
+          {/* Community */}
+          <Card className="p-6 sm:p-8 bg-gradient-to-br from-[#ffc107] to-[#e6ad00] text-[#1a1a1a] rounded-2xl shadow-xl">
+            <div className="relative z-10">
+              <span className="inline-block px-3 py-1 bg-[#1a1a1a]/20 rounded-full text-xs font-bold uppercase mb-3">
+                Community
+              </span>
+              <div className="text-4xl sm:text-5xl md:text-6xl font-black mb-1">
+                750+
+              </div>
+              <p className="text-sm sm:text-lg font-bold uppercase leading-snug">
+                Villages Impacted
+              </p>
+            </div>
+          </Card>
+        </motion.div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
 
             {/* Indian Donate CTA */}
             <section className="py-20 bg-gradient-to-br from-[#ffc107] to-[#ffb300]">
@@ -817,7 +862,7 @@ export default function DonatePage() {
                      <div className="bg-white shadow-lg w-full">
                         <Image 
                           src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133511/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0001_nw5ao7.jpg" 
-                          alt="FCRA Renewal Certificate Page 1" 
+                          alt="FCRA Certificate Page 1" 
                           width={1000} 
                           height={1400}
                           className="w-full h-auto block" 
@@ -827,7 +872,7 @@ export default function DonatePage() {
                      <div className="bg-white shadow-lg w-full">
                         <Image 
                           src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133704/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0002_vth9g7.jpg" 
-                          alt="FCRA Renewal Certificate Page 2" 
+                          alt="FCRA Certificate Page 2" 
                           width={1000} 
                           height={1400}
                           className="w-full h-auto block" 

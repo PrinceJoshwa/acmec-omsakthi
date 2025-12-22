@@ -747,7 +747,7 @@
 //                   variant="ghost"
 //                   className="w-full text-background/80 hover:text-background hover:bg-white/10"
 //                 >
-//                   View FCRA Renewal Certificate
+//                   View FCRA Certificate
 //                 </Button>
 //               </div>
 //             </motion.div>
@@ -1182,7 +1182,7 @@
 //           </>
 //         )}
 
-//         {/* FCRA Renewal Modal */}
+//         {/* FCRA Modal */}
 //         {isFcraRenewalModalOpen && (
 //           <>
 //             <motion.div
@@ -1200,7 +1200,7 @@
 //             >
 //               <div className="bg-background rounded-xl shadow-2xl relative flex flex-col h-full overflow-hidden font-serif text-foreground">
 //                 <div className="flex justify-between items-center p-4 border-b bg-muted">
-//                   <h3 className="font-bold text-foreground font-sans">FCRA Renewal Certificate</h3>
+//                   <h3 className="font-bold text-foreground font-sans">FCRA Certificate</h3>
 //                   <button
 //                     onClick={() => setIsFcraRenewalModalOpen(false)}
 //                     className="p-2 hover:bg-muted/80 rounded-full transition-colors"
@@ -1445,7 +1445,7 @@
 "use client"
 
 import { useState } from "react"
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
+import { motion, useScroll, useTransform, AnimatePresence, Variants } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import {
@@ -1515,13 +1515,14 @@ export default function Home() {
   )
 }
 
-// ========== 1. HERO COMPONENT ==========
+// ========== HERO COMPONENT ==========
 function Hero() {
   const { scrollY } = useScroll()
   const y1 = useTransform(scrollY, [0, 500], [0, 150])
 
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+      {/* Background Image */}
       <motion.div style={{ y: y1 }} className="absolute inset-0 z-0">
         <Image
           src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766091901/dental-hospital_cd4gda.jpg"
@@ -1533,7 +1534,8 @@ function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
       </motion.div>
 
-      <div className="relative z-10 container mx-auto px-4 pt-20">
+      {/* ✅ FIX: h-full + flex centering */}
+      <div className="relative z-10 container mx-auto px-4 h-full flex items-center justify-center pt-16 md:pt-20">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -1560,17 +1562,24 @@ function Hero() {
             variants={fadeInUp}
             className="text-lg md:text-2xl text-gray-200 mb-12 leading-relaxed font-light max-w-3xl mx-auto text-balance"
           >
-            Adhiparasakthi Charitable Medical Educational & Cultural Trust (ACMEC) dedicated to serving humanity
-            through holistic healthcare and education.
+            Adhiparasakthi Charitable Medical Educational & Cultural Trust (ACMEC)
+            dedicated to serving humanity through holistic healthcare and education.
           </motion.p>
 
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-8">
-            <Link href="https://www.omsakthiamma.org/online_services/donations" className="w-full sm:w-auto group">
+          <motion.div
+            variants={fadeInUp}
+            className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-8"
+          >
+            <Link
+              href="https://www.omsakthiamma.org/online_services/donations"
+              className="w-full sm:w-auto group"
+            >
               <Button className="w-full sm:w-auto bg-[#a7150b] hover:bg-[#d91e11] text-white rounded-full px-10 py-7 text-lg font-bold shadow-[0_0_40px_-10px_rgba(167,21,11,0.6)] transition-all hover:scale-105 hover:shadow-[0_0_60px_-10px_rgba(167,21,11,0.8)]">
                 <Heart className="mr-3 w-5 h-5 fill-current group-hover:animate-pulse" />
                 Donate Now
               </Button>
             </Link>
+
             <Link href="#about" className="w-full sm:w-auto">
               <Button
                 variant="outline"
@@ -1583,6 +1592,7 @@ function Hero() {
         </motion.div>
       </div>
 
+      {/* Scroll Indicator (desktop only) */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -1601,16 +1611,19 @@ function Hero() {
   )
 }
 
-// ========== 2. ABOUT COMPONENT ==========
+
+// ========== ABOUT COMPONENT ==========
 function About() {
   return (
-    <section id="about" className="py-24 md:py-32 px-4 container mx-auto">
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="about" className="py-20 md:py-32 px-4 container mx-auto">
+      <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+        {/* LEFT CONTENT */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
+          className="text-center lg:text-left"
         >
           <motion.span
             variants={fadeInUp}
@@ -1618,9 +1631,12 @@ function About() {
           >
             About The Trust
           </motion.span>
+
           <motion.h2
             variants={fadeInUp}
-            className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6 leading-tight text-balance"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl 
+                       font-serif font-bold text-foreground 
+                       mb-6 leading-tight text-balance"
           >
             A Legacy of Service{" "}
             <span className="relative inline-block">
@@ -1629,7 +1645,12 @@ function About() {
             </span>
           </motion.h2>
 
-          <motion.div variants={fadeInUp} className="text-muted-foreground text-lg leading-relaxed mb-8 space-y-4">
+          <motion.div
+            variants={fadeInUp}
+            className="text-muted-foreground 
+                       text-base sm:text-lg 
+                       leading-relaxed mb-8 space-y-4"
+          >
             <p>
               M/s Adhiparasakthi Charitable Medical Educational and Cultural Trust (ACMEC Trust), as the name suggests
               has dedicated itself to serve the people in the areas of:
@@ -1637,11 +1658,11 @@ function About() {
 
             <div className="grid sm:grid-cols-2 gap-3 py-4">
               {["Charity", "Medical", "Educational", "Cultural Activities"].map((item) => (
-                <div key={item} className="flex items-center gap-3 group">
-                  <div className="w-10 h-10 rounded-full bg-[#a7150b]/10 group-hover:bg-[#a7150b] transition-colors flex items-center justify-center">
+                <div key={item} className="flex items-start gap-3 group">
+                  <div className="w-10 h-10 rounded-full bg-[#a7150b]/10 group-hover:bg-[#a7150b] transition-colors flex items-center justify-center shrink-0">
                     <CheckCircle2 className="text-[#a7150b] group-hover:text-white w-5 h-5 transition-colors" />
                   </div>
-                  <span className="font-semibold text-foreground">{item}</span>
+                  <span className="font-semibold text-foreground leading-snug">{item}</span>
                 </div>
               ))}
             </div>
@@ -1653,22 +1674,25 @@ function About() {
             </p>
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-6">
+          {/* STATS */}
+          <motion.div variants={fadeInUp} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="group hover:scale-105 transition-transform">
               <Card className="p-6 border-l-4 border-[#ffc107] bg-gradient-to-br from-[#ffc107]/5 to-transparent hover:shadow-lg transition-shadow">
-                <h4 className="text-4xl font-bold text-foreground mb-1">1978</h4>
+                <h4 className="text-3xl md:text-4xl font-bold text-foreground mb-1">1978</h4>
                 <p className="text-sm text-muted-foreground font-medium uppercase tracking-wide">Established</p>
               </Card>
             </div>
+
             <div className="group hover:scale-105 transition-transform">
               <Card className="p-6 border-l-4 border-[#a7150b] bg-gradient-to-br from-[#a7150b]/5 to-transparent hover:shadow-lg transition-shadow">
-                <h4 className="text-2xl font-bold text-foreground mb-1">Melmaruvathur</h4>
+                <h4 className="text-xl md:text-2xl font-bold text-foreground mb-1">Melmaruvathur</h4>
                 <p className="text-sm text-muted-foreground font-medium uppercase tracking-wide">Headquarters</p>
               </Card>
             </div>
           </motion.div>
         </motion.div>
 
+        {/* RIGHT IMAGE */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -1685,6 +1709,7 @@ function About() {
               className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
             />
           </div>
+
           <div className="absolute -top-10 -right-10 w-72 h-72 bg-[#ffc107]/20 rounded-full blur-3xl -z-10 group-hover:bg-[#ffc107]/30 transition-colors" />
           <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-[#a7150b]/10 rounded-full blur-3xl -z-10 group-hover:bg-[#a7150b]/20 transition-colors" />
         </motion.div>
@@ -1864,7 +1889,7 @@ function CsrRegistration() {
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="bg-white/10 p-4 rounded-xl border border-white/10 backdrop-blur-sm">
                 <p className="text-xs text-background/60 uppercase tracking-widest mb-1">Registration Number</p>
-                <p className="text-2xl font-mono font-bold text-[#ffc107]">CSR00002407</p>
+                <p className="text-2xl font-mono font-bold text-[#ffc107]">CSR00002370</p>
               </div>
               <div className="bg-white/10 p-4 rounded-xl border border-white/10 backdrop-blur-sm">
                 <p className="text-xs text-background/60 uppercase tracking-widest mb-1">Date of Registration</p>
@@ -2022,7 +2047,7 @@ function Awards() {
 //               </ul>
 //               <div className="space-y-4">
 //                 <Button onClick={() => setIsOverseasModalOpen(true)} className="w-full bg-[#ffc107] hover:bg-[#e6ac00] text-foreground font-bold h-14 text-lg rounded-xl">View Overseas Donation Procedure</Button>
-//                 <Button onClick={() => setIsFcraRenewalModalOpen(true)} variant="ghost" className="w-full text-background/80 hover:text-background">View FCRA Renewal Certificate</Button>
+//                 <Button onClick={() => setIsFcraRenewalModalOpen(true)} variant="ghost" className="w-full text-background/80 hover:text-background">View FCRA Certificate</Button>
 //               </div>
 //             </motion.div>
 //           </div>
@@ -2076,7 +2101,7 @@ function Awards() {
 //           </motion.div>
 //         )}
         
-//         {/* 2. FCRA Renewal Modal (Updated: 2 Images Vertical Scroll) */}
+//         {/* 2. FCRA Modal (Updated: 2 Images Vertical Scroll) */}
 //         {isFcraRenewalModalOpen && (
 //           <motion.div
 //             initial={{ opacity: 0 }}
@@ -2094,7 +2119,7 @@ function Awards() {
 //             >
 //                {/* Modal Header */}
 //                <div className="flex justify-between items-center p-4 border-b bg-gray-50 z-10 shrink-0">
-//                   <h3 className="font-bold text-gray-800 text-lg">FCRA Renewal Certificate (2 Pages)</h3>
+//                   <h3 className="font-bold text-gray-800 text-lg">FCRA Certificate (2 Pages)</h3>
 //                   <button
 //                     onClick={() => setIsFcraRenewalModalOpen(false)}
 //                     className="p-2 bg-gray-200 hover:bg-gray-300 rounded-full transition-colors text-gray-700"
@@ -2111,7 +2136,7 @@ function Awards() {
 //                         {/* REPLACE WITH YOUR PAGE 1 IMAGE PATH */}
 //                         <Image 
 //                           src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133511/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0001_nw5ao7.jpg" 
-//                           alt="FCRA Renewal Page 1" 
+//                           alt="FCRA Page 1" 
 //                           width={1000}
 //                           height={1400}
 //                           className="w-full h-auto block" 
@@ -2124,7 +2149,7 @@ function Awards() {
 //                         {/* REPLACE WITH YOUR PAGE 2 IMAGE PATH */}
 //                         <Image 
 //                           src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133704/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0002_vth9g7.jpg" 
-//                           alt="FCRA Renewal Page 2" 
+//                           alt="FCRA Page 2" 
 //                           width={1000}
 //                           height={1400}
 //                           className="w-full h-auto block" 
@@ -2230,191 +2255,197 @@ function Awards() {
 //     </>
 //   )
 // }
+
 // ========== 7. DONATION COMPONENT (UPDATED CONTENT) ==========
 function Donation() {
   const [isOverseasModalOpen, setIsOverseasModalOpen] = useState(false)
 
   return (
     <>
-      <section className="py-24 px-4 bg-muted/30" id="donate">
+      <section className="py-20 md:py-24 px-4 bg-muted/30" id="donate">
         <div className="container mx-auto max-w-6xl">
-          
-          {/* ================= NEW SECTION: WHY WE NEED DONATION ================= */}
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-2">
+
+          {/* WHY DONATE */}
+          <div className="text-center max-w-3xl mx-auto mb-14 md:mb-16 space-y-4">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-semibold">
               <HeartHandshake className="w-4 h-4" />
               <span>Join Our Mission</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
               Empowering Lives, Creating Impact
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              We have created meaningful impacts in rural education and healthcare. 
-              Your contribution helps us sustain these efforts. Join us and empower the mission to help the needy—every rupee counts towards building a better future.
+
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+              We have created meaningful impacts in rural education and healthcare.
+              Your contribution helps us sustain these efforts. Join us and empower
+              the mission to help the needy—every rupee counts towards building a better future.
             </p>
           </div>
 
-          {/* ================= SECTION 1: DONATION CARDS ================= */}
-          <div className="grid md:grid-cols-2 gap-8 items-start mb-20">
-            
-            {/* --- Domestic Donors Card (UPDATED CONTENT) --- */}
-            <motion.div 
-              whileHover={{ y: -5 }} 
-              className="bg-card rounded-3xl p-8 lg:p-10 shadow-xl border border-border relative overflow-hidden flex flex-col h-full"
+          {/* DONATION CARDS */}
+          <div className="grid md:grid-cols-2 gap-8 items-stretch mb-16 md:mb-20">
+
+            {/* DOMESTIC */}
+            <motion.div
+              whileHover={{ y: -5 }}
+              className="bg-card rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl border border-border relative flex flex-col"
             >
               <div className="absolute top-0 left-0 w-full h-2 bg-[#a7150b]" />
-              
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-4 bg-red-50 rounded-2xl text-[#a7150b]">
+
+              <div className="flex items-start gap-4 mb-6">
+                <div className="p-4 bg-red-50 rounded-2xl text-[#a7150b] shrink-0">
                   <FileText className="w-8 h-8" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-foreground">Domestic Donors</h3>
-                  <span className="text-sm font-medium text-green-600 bg-green-100 px-3 py-1 rounded-full">
+                  <h3 className="text-xl sm:text-2xl font-bold text-foreground">Domestic Donors</h3>
+                  <span className="text-xs sm:text-sm font-medium text-green-600 bg-green-100 px-3 py-1 rounded-full">
                     Indian Citizens Only
                   </span>
                 </div>
               </div>
 
-              {/* Updated Content based on 80G Reference */}
-              <div className="space-y-4 mb-8 flex-1">
+              <div className="space-y-4 mb-8 flex-1 text-sm sm:text-base">
                 <p className="text-muted-foreground">
-                  Maximize your philanthropic impact while saving on taxes. Your contributions support vital education and rural development initiatives.
+                  Maximize your philanthropic impact while saving on taxes.
+                  Your contributions support vital education and rural development initiatives.
                 </p>
+
                 <ul className="space-y-3">
                   {[
                     "Eligible for Section 80G Tax Exemption",
                     "Valid Receipt with PAN for IT Returns",
-                    "Supports Education & Rural Development"
+                    "Supports Education & Rural Development",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-foreground font-medium">
-                      <CheckCircle2 className="w-5 h-5 text-[#a7150b] shrink-0" /> {item}
+                    <li key={i} className="flex items-start gap-3 font-medium text-foreground">
+                      <CheckCircle2 className="w-5 h-5 text-[#a7150b] shrink-0 mt-0.5" />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
-                
-                {/* Note from Reference Document */}
+
                 <div className="bg-red-50 border border-red-100 rounded-lg p-3 flex gap-2 text-xs text-red-800">
-                   <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
-                   <p>Note: As per Govt regulations, cash donations exceeding ₹2,000 are not eligible for 80G deduction. Please use digital modes.</p>
+                  <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                  <p>
+                    Note: As per Govt regulations, cash donations exceeding ₹2,000
+                    are not eligible for 80G deduction. Please use digital modes.
+                  </p>
                 </div>
               </div>
 
-              <Link href="https://www.omsakthiamma.org/online_services/donations" className="block w-full mt-auto">
-                <Button className="w-full bg-[#a7150b] hover:bg-[#8a0d08] text-white h-14 text-lg rounded-xl shadow-md transition-all hover:scale-[1.02]">
+              <Link
+                href="https://www.omsakthiamma.org/online_services/donations"
+                className="block w-full mt-auto"
+              >
+                <Button className="w-full bg-[#a7150b] hover:bg-[#8a0d08] text-white h-14 text-base sm:text-lg rounded-xl shadow-md transition-all hover:scale-[1.02]">
                   Donate via UPI / NetBanking
                 </Button>
               </Link>
             </motion.div>
 
-
-            {/* --- Foreign Donors Card (CONTENT UNCHANGED) --- */}
-            <motion.div 
-              whileHover={{ y: -5 }} 
-              className="bg-foreground rounded-3xl p-8 lg:p-10 shadow-xl relative overflow-hidden flex flex-col text-background h-full"
+            {/* FOREIGN */}
+            <motion.div
+              whileHover={{ y: -5 }}
+              className="bg-foreground rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl relative flex flex-col text-background"
             >
               <div className="absolute top-0 left-0 w-full h-2 bg-[#ffc107]" />
-              
-              <div className="flex items-center gap-4 mb-8">
-                <div className="p-4 bg-white/10 rounded-2xl text-[#ffc107]">
+
+              <div className="flex items-start gap-4 mb-6">
+                <div className="p-4 bg-white/10 rounded-2xl text-[#ffc107] shrink-0">
                   <Globe className="w-8 h-8" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">Foreign Donors</h3>
-                  <span className="text-sm font-medium text-foreground bg-[#ffc107] px-3 py-1 rounded-full">
+                  <h3 className="text-xl sm:text-2xl font-bold">Foreign Donors</h3>
+                  <span className="text-xs sm:text-sm font-medium text-foreground bg-[#ffc107] px-3 py-1 rounded-full">
                     FCRA Approved
                   </span>
                 </div>
               </div>
 
-              <ul className="space-y-3 mb-8 flex-1">
-                {["Government Approved FCRA", "International Wire Transfer", "SWIFT Transfer Support"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-background/80">
-                    <CheckCircle2 className="w-5 h-5 text-[#ffc107]" /> {item}
+              <ul className="space-y-3 mb-8 flex-1 text-sm sm:text-base">
+                {[
+                  "Government Approved FCRA",
+                  "International Wire Transfer",
+                  "SWIFT Transfer Support",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-background/80">
+                    <CheckCircle2 className="w-5 h-5 text-[#ffc107] shrink-0 mt-0.5" />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
 
-              {/* ACTION: View Procedure Button (Yellow) */}
-              <div className="mt-auto">
-                <Button 
-                  onClick={() => setIsOverseasModalOpen(true)} 
-                  className="w-full bg-[#ffc107] hover:bg-[#e6ac00] text-foreground font-bold h-14 text-lg rounded-xl shadow-md transition-all hover:scale-[1.02]"
-                >
-                  View Overseas Donation Procedure
-                </Button>
-              </div>
+              <Button
+                onClick={() => setIsOverseasModalOpen(true)}
+                className="w-full bg-[#ffc107] hover:bg-[#e6ac00] text-foreground font-bold h-14 text-base sm:text-lg rounded-xl shadow-md transition-all hover:scale-[1.02]"
+              >
+                View Overseas Donation Procedure
+              </Button>
             </motion.div>
           </div>
 
-
-          {/* ================= SECTION 2: CERTIFICATE IMAGES ================= */}
-          <div className="space-y-16">
-            
-            <div className="flex items-center justify-center gap-3">
-               <ShieldCheck className="w-8 h-8 text-primary" />
-               <h2 className="text-3xl font-bold text-center text-foreground">Legal Certificates & Documents</h2>
+          {/* CERTIFICATES */}
+          <div className="space-y-14 md:space-y-16">
+            <div className="flex items-center justify-center gap-3 text-center">
+              <ShieldCheck className="w-7 h-7 text-primary" />
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
+                Legal Certificates & Documents
+              </h2>
             </div>
 
-            {/* 1. 80G Certificate (Domestic) */}
-            <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg border border-border">
-               <div className="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
-                  <FileText className="w-6 h-6 text-[#a7150b]" />
-                  <h3 className="text-xl font-bold text-foreground">80G Tax Exemption Certificate (Domestic)</h3>
-               </div>
-               
-               <div className="flex justify-center bg-gray-50 rounded-xl p-4 border border-gray-100">
-                  <Image 
-                    src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766169266/Screenshot_2025-12-20_000354_vxwwyc.png" 
-                    alt="80G Certificate" 
-                    width={800} 
-                    height={1000}
-                    className="w-full max-w-3xl h-auto shadow-sm" 
-                  />
-               </div>
+            {/* 80G */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-12 shadow-lg border border-border">
+              <div className="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
+                <FileText className="w-6 h-6 text-[#a7150b]" />
+                <h3 className="text-lg sm:text-xl font-bold text-foreground">
+                  80G Tax Exemption Certificate (Domestic)
+                </h3>
+              </div>
+
+              <div className="flex justify-center bg-gray-50 rounded-xl p-4 border border-gray-100">
+                <Image
+                  src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766169266/Screenshot_2025-12-20_000354_vxwwyc.png"
+                  alt="80G Certificate"
+                  width={800}
+                  height={1000}
+                  className="w-full max-w-3xl h-auto shadow-sm"
+                />
+              </div>
             </div>
 
-            {/* 2. FCRA Certificates (Foreign) */}
-            <div className="bg-slate-900 rounded-3xl p-8 lg:p-12 shadow-lg relative overflow-hidden text-white">
-               <div className="absolute top-0 left-0 w-full h-2 bg-[#ffc107]" />
-               
-               <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-4">
-                  <Globe className="w-6 h-6 text-[#ffc107]" />
-                  <h3 className="text-xl font-bold">FCRA Renewal Certificate (Foreign)</h3>
-               </div>
+            {/* FCRA */}
+            <div className="bg-slate-900 rounded-3xl p-6 sm:p-8 lg:p-12 shadow-lg text-white relative">
+              <div className="absolute top-0 left-0 w-full h-2 bg-[#ffc107]" />
 
-               <div className="grid md:grid-cols-2 gap-8">
-                  {/* Page 1 */}
-                  <div className="space-y-3">
-                     <p className="text-sm text-center text-white/60 font-medium">Page 01</p>
-                     <div className="rounded-xl overflow-hidden border border-white/20 shadow-lg bg-white">
-                        <Image 
-                          src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133511/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0001_nw5ao7.jpg" 
-                          alt="FCRA Renewal Page 1" 
-                          width={600}
-                          height={800}
-                          className="w-full h-auto" 
-                        />
-                     </div>
-                  </div>
+              <div className="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+                <Globe className="w-6 h-6 text-[#ffc107]" />
+                <h3 className="text-lg sm:text-xl font-bold">FCRA Certificate (Foreign)</h3>
+              </div>
 
-                  {/* Page 2 */}
-                  <div className="space-y-3">
-                     <p className="text-sm text-center text-white/60 font-medium">Page 02</p>
-                     <div className="rounded-xl overflow-hidden border border-white/20 shadow-lg bg-white">
-                        <Image 
-                          src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133704/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0002_vth9g7.jpg" 
-                          alt="FCRA Renewal Page 2" 
-                          width={600}
-                          height={800}
-                          className="w-full h-auto" 
-                        />
-                     </div>
+              <div className="grid md:grid-cols-2 gap-8">
+                {[1, 2].map((page) => (
+                  <div key={page} className="space-y-3">
+                    <p className="text-sm text-center text-white/60 font-medium">
+                      Page {page.toString().padStart(2, "0")}
+                    </p>
+                    <div className="rounded-xl overflow-hidden border border-white/20 shadow-lg bg-white">
+                      <Image
+                        src={
+                          page === 1
+                            ? "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133511/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0001_nw5ao7.jpg"
+                            : "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133704/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0002_vth9g7.jpg"
+                        }
+                        alt={`FCRA Page ${page}`}
+                        width={600}
+                        height={800}
+                        className="w-full h-auto"
+                      />
+                    </div>
                   </div>
-               </div>
+                ))}
+              </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -2614,15 +2645,17 @@ function CsrInquiry() {
   }
 
   return (
-    <section className="py-24 px-4 bg-[#ffc107] relative">
+    // Reduced vertical padding on mobile (py-12) vs desktop (py-24)
+    <section className="py-12 md:py-24 px-4 bg-[#ffc107] relative">
       <div className="container mx-auto max-w-5xl relative z-10">
         <Card className="border-none shadow-2xl rounded-3xl overflow-hidden">
-          <div className="grid md:grid-cols-5">
+          <div className="grid grid-cols-1 md:grid-cols-5">
             {/* Form Side */}
-            <div className="md:col-span-3 p-8 md:p-12 bg-background">
-              <div className="mb-8">
-                <h3 className="text-3xl font-serif font-bold text-foreground">Partner with Us</h3>
-                <p className="text-muted-foreground mt-2">Interested in a CSR collaboration? Let's connect.</p>
+            <div className="md:col-span-3 p-6 md:p-12 bg-background">
+              <div className="mb-6 md:mb-8">
+                {/* Adjusted font size for mobile */}
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-foreground">Partner with Us</h3>
+                <p className="text-sm md:text-base text-muted-foreground mt-2">Interested in a CSR collaboration? Let's connect.</p>
               </div>
 
               {formStatus === "success" ? (
@@ -2632,8 +2665,9 @@ function CsrInquiry() {
                   <p className="text-muted-foreground">We will get back to you within 24 hours.</p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleFormSubmit} className="space-y-5">
-                  <div className="grid grid-cols-2 gap-4">
+                <form onSubmit={handleFormSubmit} className="space-y-4 md:space-y-5">
+                  {/* Changed to single column on mobile (grid-cols-1) for better input width */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">Full Name</Label>
                       <Input id="name" required placeholder="John Doe" className="bg-muted border-border h-11 focus:ring-[#a7150b]" />
@@ -2643,7 +2677,9 @@ function CsrInquiry() {
                       <Input id="company" required placeholder="Tech Corp" className="bg-muted border-border h-11 focus:ring-[#a7150b]" />
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  
+                  {/* Changed to single column on mobile */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
                       <Input id="email" type="email" required placeholder="john@example.com" className="bg-muted border-border h-11 focus:ring-[#a7150b]" />
@@ -2653,6 +2689,7 @@ function CsrInquiry() {
                       <Input id="phone" type="tel" required placeholder="+91..." className="bg-muted border-border h-11 focus:ring-[#a7150b]" />
                     </div>
                   </div>
+
                   <div className="space-y-2">
                     <Label htmlFor="project">Interested Project</Label>
                     <Select onValueChange={(value) => setSelectedProject(value)}>
@@ -2666,16 +2703,19 @@ function CsrInquiry() {
                       </SelectContent>
                     </Select>
                   </div>
+                  
                   {selectedProject === "others" && (
                     <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="space-y-2">
                       <Label htmlFor="other-details">Specify Details</Label>
                       <Input id="other-details" required placeholder="Please specify..." className="bg-muted border-border h-11 focus:ring-[#a7150b]" />
                     </motion.div>
                   )}
+                  
                   <div className="space-y-2">
                     <Label htmlFor="remarks">Remarks</Label>
                     <Textarea id="remarks" placeholder="Any specific requirements?" className="bg-muted border-border resize-none focus:ring-[#a7150b]" rows={3} />
                   </div>
+                  
                   <Button type="submit" disabled={formStatus === "submitting"} className="w-full bg-[#a7150b] hover:bg-[#8a0d08] text-white font-bold h-12 text-lg rounded-xl">
                     {formStatus === "submitting" ? "Sending..." : "Submit Inquiry"}
                   </Button>
@@ -2684,28 +2724,30 @@ function CsrInquiry() {
             </div>
 
             {/* Info Side */}
-            <div className="md:col-span-2 bg-foreground p-8 md:p-12 text-background flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-6 opacity-5">
-                <Building2 size={200} />
+            <div className="md:col-span-2 bg-foreground p-6 md:p-12 text-background flex flex-col justify-between relative overflow-hidden">
+              {/* Adjusted icon position/size for mobile so it doesn't overlap text */}
+              <div className="absolute top-0 right-0 p-6 opacity-5 pointer-events-none">
+                <Building2 size={150} className="md:w-[200px] md:h-[200px]" />
               </div>
-              <div>
-                <h4 className="text-xl font-bold mb-6 text-[#ffc107]">
+              
+              <div className="relative z-10">
+                <h4 className="text-lg md:text-xl font-bold mb-6 text-[#ffc107]">
                   Contact Information
                 </h4>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <Mail className="w-6 h-6 text-[#ffc107] shrink-0 mt-1" />
+                    <Mail className="w-5 h-5 md:w-6 md:h-6 text-[#ffc107] shrink-0 mt-1" />
                     <div>
                       <p className="text-xs text-background/60 uppercase tracking-wider">
                         Email Us
                       </p>
-                      <p className="font-medium text-sm">
+                      <p className="font-medium text-sm break-all">
                         contact@acmectrust.org
                       </p>
                     </div>
                   </div>               
                   <div className="flex items-start gap-4">
-                    <Phone className="w-6 h-6 text-[#ffc107] shrink-0 mt-1" />
+                    <Phone className="w-5 h-5 md:w-6 md:h-6 text-[#ffc107] shrink-0 mt-1" />
                     <div>
                       <p className="text-xs text-background/60 uppercase tracking-wider mb-1">
                         Call Us
@@ -2719,7 +2761,7 @@ function CsrInquiry() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Building2 className="w-6 h-6 text-[#ffc107] shrink-0 mt-1" />
+                    <Building2 className="w-5 h-5 md:w-6 md:h-6 text-[#ffc107] shrink-0 mt-1" />
                     <div>
                       <p className="text-xs text-background/60 uppercase tracking-wider mb-1">
                         Visit Us
@@ -2736,7 +2778,7 @@ function CsrInquiry() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Clock className="w-6 h-6 text-[#ffc107] shrink-0 mt-1" />
+                    <Clock className="w-5 h-5 md:w-6 md:h-6 text-[#ffc107] shrink-0 mt-1" />
                     <div>
                       <p className="text-xs text-background/60 uppercase tracking-wider mb-1">
                         Timing
@@ -2748,7 +2790,8 @@ function CsrInquiry() {
                   </div>
                 </div>
               </div>
-              <div className="mt-8 pt-8 border-t border-white/10">
+              
+              <div className="mt-8 pt-8 border-t border-white/10 relative z-10">
                 <p className="text-xs text-background/60">
                   By submitting this form, you agree to our privacy policy
                   regarding data collection.
