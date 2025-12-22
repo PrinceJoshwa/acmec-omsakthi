@@ -94,7 +94,7 @@
 //                    Empowered by the <br/>Ministry of Corporate Affairs
 //                 </h2>
 //                 <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-//                    The <strong>Adhiparasakthi Siddhar Peeda Women's Charitable Trust (ASPWCT)</strong> is officially authorized to undertake CSR activities under Section 135 of the Companies (Amendment) Act, 2014.
+//                    The <strong>Adhiparasakthi Charitable Medical Educational & Cultural Trust (ASPWCT)</strong> is officially authorized to undertake CSR activities under Section 135 of the Companies (Amendment) Act, 2014.
 //                 </p>
                 
 //                 <div className="grid sm:grid-cols-2 gap-4 mb-8">
@@ -388,7 +388,7 @@ export default function CSRPage() {
                    Empowered by the <br/>Ministry of Corporate Affairs
                 </h2>
                 <p className="text-slate-600 text-lg mb-6 leading-relaxed">
-                   The <strong>Adhiparasakthi Siddhar Peeda Women's Charitable Trust (ACMEC)</strong> is officially authorized to undertake CSR activities under Section 135 of the Companies (Amendment) Act, 2014.
+                   The <strong>Adhiparasakthi Charitable Medical Educational & Cultural Trust (ACMEC)</strong> is officially authorized to undertake CSR activities under Section 135 of the Companies (Amendment) Act, 2014.
                 </p>
                 
                 <div className="grid sm:grid-cols-2 gap-4 mb-8">
@@ -579,7 +579,7 @@ export default function CSRPage() {
                     <span className="inline-block px-4 py-2 bg-[#a7150b]/10 text-[#a7150b] rounded-full text-xs font-bold tracking-widest uppercase mb-4">
                       CSR Initiative 02
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">Endoscope Machine by ICICI</h2>
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">Endoscopy Machine by ICICI</h2>
                   </div>
       
                   {/* Same layout for consistency */}
