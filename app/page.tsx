@@ -1518,10 +1518,10 @@ export default function Home() {
 // ========== HERO COMPONENT ==========
 function Hero() {
   const { scrollY } = useScroll()
-  const y1 = useTransform(scrollY, [0, 500], [0, 150])
+  const y1 = useTransform(scrollY, [0, 300], [0, 80])
 
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+    <section className="relative min-h-[100svh] w-full overflow-hidden flex items-center justify-center">
       {/* Background Image */}
       <motion.div style={{ y: y1 }} className="absolute inset-0 z-0">
         <Image
@@ -1534,8 +1534,8 @@ function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
       </motion.div>
 
-      {/* ✅ FIX: h-full + flex centering */}
-      <div className="relative z-10 container mx-auto px-4 h-full flex items-center justify-center pt-16 md:pt-20">
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-4 py-20 flex items-center justify-center">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -1568,14 +1568,14 @@ function Hero() {
 
           <motion.div
             variants={fadeInUp}
-            className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-8"
+            className="flex flex-col sm:flex-row items-center justify-center gap-5"
           >
             <Link
               href="https://donations.acmectrust.org/donate-category/"
               className="w-full sm:w-auto group"
             >
-              <Button className="w-full sm:w-auto bg-[#a7150b] hover:bg-[#d91e11] text-white rounded-full px-10 py-7 text-lg font-bold shadow-[0_0_40px_-10px_rgba(167,21,11,0.6)] transition-all hover:scale-105 hover:shadow-[0_0_60px_-10px_rgba(167,21,11,0.8)]">
-                <Heart className="mr-3 w-5 h-5 fill-current group-hover:animate-pulse" />
+              <Button className="w-full sm:w-auto bg-[#a7150b] hover:bg-[#d91e11] text-white rounded-full px-10 py-7 text-lg font-bold transition-all hover:scale-105">
+                <Heart className="mr-3 w-5 h-5 fill-current" />
                 Donate Now
               </Button>
             </Link>
@@ -1583,7 +1583,7 @@ function Hero() {
             <Link href="#about" className="w-full sm:w-auto">
               <Button
                 variant="outline"
-                className="w-full sm:w-auto border-2 border-white/40 text-white hover:bg-white hover:text-black rounded-full px-10 py-7 text-lg font-bold backdrop-blur-sm transition-all hover:scale-105 bg-white/5"
+                className="w-full sm:w-auto border-2 border-white/40 text-white hover:bg-white hover:text-black rounded-full px-10 py-7 text-lg font-bold backdrop-blur-sm bg-white/5 transition-all hover:scale-105"
               >
                 Explore Our Work
               </Button>
@@ -1591,25 +1591,10 @@ function Hero() {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Scroll Indicator (desktop only) */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-          className="w-6 h-10 border-2 border-white/40 rounded-full flex items-start justify-center p-2"
-        >
-          <motion.div className="w-1 h-2 bg-white rounded-full" />
-        </motion.div>
-      </motion.div>
     </section>
   )
 }
+
 
 
 // ========== ABOUT COMPONENT ==========
