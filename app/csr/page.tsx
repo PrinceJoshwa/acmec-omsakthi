@@ -314,6 +314,19 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { useForm, ValidationError } from '@formspree/react';
+import {
+  GraduationCap,
+  BookOpen,
+  Stethoscope,
+  Phone,
+  ArrowRight,
+  School,
+  Leaf,
+  HeartPulse,
+  Activity,
+  MapPin,
+  Printer
+} from "lucide-react"
 
 
 // --- Animation Variants ---
@@ -321,6 +334,160 @@ const fadeInUp = {
    hidden: { opacity: 0, y: 30 },
    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 }
+
+const institutions = [
+  {
+    category: "Medical",
+    name: "Melmaruvathur Adhiparasakthi Institute of Medical Sciences and Research",
+    address: ["Melmaruvathur,", "Kancheepuram District,", "Tamilnadu, India,", "Pin code – 603319."],
+    phone: "044-27528108",
+    email: "maphsmelmaruvathur@yahoo.com",
+    website: "www.adhiparasakthischools.com",
+    icon: Stethoscope,
+    color: "text-blue-600",
+    bg: "bg-blue-50"
+  },
+  {
+    category: "Dental",
+    name: "Adhiparasakthi Dental College and Hospital",
+    address: ["Melmaruvathur,", "Kancheepuram District,", "Tamilnadu, India,", "Pin code – 603319."],
+    phone: "044 -27528082, 27528083 & 27528084",
+    fax: "044- 27528081",
+    email: "apdcollege@gmail.com",
+    website: "www.apdch.com",
+    icon: HeartPulse,
+    color: "text-red-600",
+    bg: "bg-red-50"
+  },
+  {
+    category: "Nursing",
+    name: "Adhiparasakthi College of Nursing",
+    address: ["Melmaruvathur,", "Kancheepuram District,", "Tamilnadu, India,", "Pin code – 603319."],
+    phone: "044-27529089 & 27529581",
+    fax: "044-27529581",
+    email: "apcon_mel@yahoo.com",
+    website: "www.apcon.org",
+    icon: HeartPulse,
+    color: "text-pink-600",
+    bg: "bg-pink-50"
+  },
+  {
+    category: "Physiotherapy",
+    name: "Adhiparasakthi College of Physiotherapy",
+    address: ["Melmaruvathur,", "Kancheepuram District,", "Tamilnadu, India,", "Pin code – 603319."],
+    phone: "044- 27529257 & 27529378",
+    fax: "044- 27529378",
+    email: "apcopt1994@yahoo.co.in",
+    website: "www.apcopt.org",
+    icon: Activity,
+    color: "text-cyan-600",
+    bg: "bg-cyan-50"
+  },
+  {
+    category: "Engineering",
+    name: "Adhiparasakthi Engineering College",
+    address: ["Melmaruvathur,", "Kancheepuram District,", "Tamilnadu, India,", "Pin code – 603319."],
+    phone: "044-27529247, 27529502, 27529094",
+    fax: "044- 27529094",
+    email: "apec1984@rediffmail.com",
+    website: "www.adhiparasakthi.in",
+    icon: Building2,
+    color: "text-orange-600",
+    bg: "bg-orange-50"
+  },
+  {
+    category: "Polytechnic",
+    name: "Adhiparasakthi Polytechnic College",
+    address: ["Melmaruvathur,", "Kancheepuram District,", "Tamilnadu, India,", "Pin code – 603319."],
+    phone: "044-27529234, 27529281",
+    fax: "044- 27529955",
+    email: "principal_aptcmmr@yahoo.co.in",
+    website: "www.aptcmmr.com",
+    icon: Building2,
+    color: "text-indigo-600",
+    bg: "bg-indigo-50"
+  },
+  {
+    category: "Arts & Science",
+    name: "Adhiparasakthi College Of Arts And Science",
+    address: ["G.B. Nagar , Kalavai,", "Vellore District,", "Tamilnadu, India,", "Pin code – 632506."],
+    phone: "04173- 242226",
+    fax: "04173- 242646",
+    email: "principal@apcasgbn.com",
+    website: "www.apcasgbn.com",
+    icon: BookOpen,
+    color: "text-purple-600",
+    bg: "bg-purple-50"
+  },
+  {
+    category: "Engineering",
+    name: "Adhiparasakthi College of Engineering",
+    address: ["G.B. Nagar , Kalavai,", "Vellore District,", "Tamilnadu, India,", "Pin code – 632506."],
+    phone: "04173- 242584, 242089 & 242089",
+    fax: "04173 – 242066",
+    email: "apce501@gmail.com",
+    website: "www.apcegbn.com",
+    icon: Building2,
+    color: "text-orange-600",
+    bg: "bg-orange-50"
+  },
+  {
+    category: "Agriculture",
+    name: "Adhiparasakthi Agricultural College",
+    address: ["G.B. Nagar , Kalavai,", "Vellore District,", "Tamilnadu, India,", "Pin code – 632506."],
+    phone: "04173 – 295080",
+    fax: "04173 – 242066",
+    email: "deanapac@tnau.ac.in",
+    website: "www.apac.ac.in",
+    icon: Leaf,
+    color: "text-green-600",
+    bg: "bg-green-50"
+  },
+  {
+    category: "School",
+    name: "Adhiparasakthi Matriculation Higher Secondary School",
+    address: ["Melmaruvathur,", "Kancheepuram District,", "Tamilnadu, India,", "Pin code – 603319."],
+    phone: "044-27529208",
+    email: "apmhsschool_mmr@yahoo.co.in",
+    website: "www.adhiparasakthischools.com",
+    icon: School,
+    color: "text-yellow-600",
+    bg: "bg-yellow-50"
+  },
+  {
+    category: "School",
+    name: "Melmaruvathur Adhiparasakthi High School",
+    address: ["Melmaruvathur,", "Kancheepuram District,", "Tamilnadu, India,", "Pin code – 603319."],
+    phone: "044-27528108",
+    email: "maphsmelmaruvathur@yahoo.com",
+    website: "www.adhiparasakthischools.com",
+    icon: School,
+    color: "text-yellow-600",
+    bg: "bg-yellow-50"
+  },
+  {
+    category: "School",
+    name: "G B Public School",
+    address: ["Melmaruvathur,", "Kancheepuram District,", "Tamilnadu, India,", "Pin code – 603319."],
+    phone: "044-27528350",
+    email: "gbpubsch.mmr@gmail.com",
+    website: "www.adhiparasakthischools.com",
+    icon: School,
+    color: "text-yellow-600",
+    bg: "bg-yellow-50"
+  },
+  {
+    category: "Special Home",
+    name: "Adhiparasakthi Annai Illam",
+    address: ["Melmaruvathur,", "Kancheepuram District,", "Tamilnadu, India,", "Pin code – 603319."],
+    phone: "044-27529299",
+    email: "annaiillamacmectrust@gmail.com",
+    website: "www.apannaiillam.in",
+    icon: HeartPulse,
+    color: "text-[#a7150b]",
+    bg: "bg-red-100"
+  }
+]
 
 const staggerContainer = {
    hidden: { opacity: 0 },
@@ -615,6 +782,89 @@ export default function CSRPage() {
                 </div>
               </div>
             </section>
+
+      {/* ================= INSTITUTIONS GRID ================= */}
+            <section className="py-20 bg-white">
+              <div className="container mx-auto px-4">
+                  <div className="text-center mb-10">
+                    {/* <span className="inline-block px-4 py-2 bg-[#a7150b]/10 text-[#a7150b] rounded-full text-xs font-bold tracking-widest uppercase mb-4">
+                      CSR Initiative 02
+                    </span> */}
+                    <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">Educational Institutions</h2>
+                  </div>
+                 
+                 <motion.div 
+                   variants={staggerContainer}
+                   initial="hidden"
+                   whileInView="visible"
+                   viewport={{ once: true }}
+                   className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+                 >
+                    {institutions.map((item, idx) => (
+                       <motion.div key={idx} variants={fadeInUp} className="h-full">
+                          <Card className="h-full border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group bg-white flex flex-col">
+                             
+                             {/* Color Strip */}
+                             <div className={`h-2 w-full ${item.bg.replace("bg-", "bg-")}-500/30`} />
+                             
+                             <div className="p-6 flex-1 flex flex-col">
+                                {/* Header */}
+                                <div className="flex justify-between items-start mb-4">
+                                   <div className={`p-3 rounded-xl ${item.bg} ${item.color}`}>
+                                      <item.icon className="w-8 h-8" />
+                                   </div>
+                                   <span className={`text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider ${item.bg} ${item.color}`}>
+                                      {item.category}
+                                   </span>
+                                </div>
+      
+                                {/* Name */}
+                                <h3 className="text-lg font-bold text-[#1a1a1a] mb-6 group-hover:text-[#a7150b] transition-colors leading-tight min-h-[3.5rem]">
+                                   {item.name}
+                                </h3>
+      
+                                {/* Address */}
+                                <div className="mb-6 pl-0">
+                                   <div className="flex items-start gap-3 text-slate-600 text-sm">
+                                      <MapPin className="w-4 h-4 shrink-0 mt-1 text-[#a7150b]" />
+                                      <div className="space-y-0.5">
+                                         {item.address.map((line, i) => (
+                                           <p key={i}>{line}</p>
+                                         ))}
+                                      </div>
+                                   </div>
+                                </div>
+      
+                                {/* Contact Details */}
+                                <div className="space-y-3 mt-auto pt-4 border-t border-slate-100">
+                                   {item.phone && (
+                                     <div className="flex items-start gap-3 text-slate-600 text-sm">
+                                        <Phone className="w-4 h-4 shrink-0 mt-1 text-slate-400" />
+                                        <span className="break-words">{item.phone}</span>
+                                     </div>
+                                   )}
+                                   {item.fax && (
+                                     <div className="flex items-start gap-3 text-slate-600 text-sm">
+                                        <Printer className="w-4 h-4 shrink-0 mt-1 text-slate-400" />
+                                        <span className="break-words">{item.fax}</span>
+                                     </div>
+                                   )}
+                                   {item.email && (
+                                     <div className="flex items-start gap-3 text-slate-600 text-sm">
+                                        <Mail className="w-4 h-4 shrink-0 mt-1 text-slate-400" />
+                                        <span className="break-all">{item.email}</span>
+                                     </div>
+                                   )}
+                                </div>
+                             </div>
+                          </Card>
+                       </motion.div>
+                    ))}
+                 </motion.div>
+      
+              </div>
+            </section>
+            
 
       {/* ================= CONTACT FORM ================= */}
       <section className="py-24 px-4 container mx-auto" id="contact">
