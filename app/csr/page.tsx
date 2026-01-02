@@ -313,30 +313,33 @@ import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
+import { useForm, ValidationError } from '@formspree/react';
+
 
 // --- Animation Variants ---
 const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+   hidden: { opacity: 0, y: 30 },
+   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 }
 
 const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.3 } },
+   hidden: { opacity: 0 },
+   visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.3 } },
 }
 
 export default function CSRPage() {
-  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success">("idle")
-  
-  // Modal States
-  const [isCsrLetterModalOpen, setIsCsrLetterModalOpen] = useState(false)
-  const [isFcraRenewalModalOpen, setIsFcraRenewalModalOpen] = useState(false)
+   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success">("idle")
+   
+   // Modal States
+  const [state, handleSubmit] = useForm("xgovkoye");
+  const [isCsrLetterModalOpen, setIsCsrLetterModalOpen] = useState(false);
+  const [isFcraRenewalModalOpen, setIsFcraRenewalModalOpen] = useState(false);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setFormStatus("submitting")
-    setTimeout(() => setFormStatus("success"), 2000)
-  }
+//   const handleFormSubmit = (e: React.FormEvent) => {
+//     e.preventDefault()
+//     setFormStatus("submitting")
+//     setTimeout(() => setFormStatus("success"), 2000)
+//   }
 
   return (
     <main className="bg-background overflow-x-hidden font-sans text-foreground selection:bg-[#ffc107] selection:text-black">
@@ -615,76 +618,117 @@ export default function CSRPage() {
 
       {/* ================= CONTACT FORM ================= */}
       <section className="py-24 px-4 container mx-auto" id="contact">
-         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100">
-            <div className="grid lg:grid-cols-5">
-               
-               {/* Contact Info Sidebar */}
-               <div className="lg:col-span-2 bg-[#a7150b] p-10 text-white flex flex-col justify-between">
-                  <div>
-                     <Handshake className="w-16 h-16 text-[#ffc107] mb-8" />
-                     <h3 className="text-3xl font-serif font-bold mb-4">Partner With Us</h3>
-                     <p className="text-white/80 mb-8 leading-relaxed">
-                        Complete this form to start a conversation about how your organization can meet its CSR objectives with ACMEC.
-                     </p>
-                  </div>
-                  
-                  <div className="space-y-6">
-                     <div className="flex items-center gap-4">
-                        <Mail className="w-5 h-5 text-[#ffc107]" />
-                        <span className="font-bold">contact@acmectrust.org</span>
-                     </div>
-                     <div className="flex items-center gap-4">
-                        <Building2 className="w-5 h-5 text-[#ffc107]" />
-                        <span className="font-bold">Melmaruvathur - 603 319</span>
-                     </div>
-                  </div>
-               </div>
-
-               {/* Form Area */}
-               <div className="lg:col-span-3 p-10 bg-white">
-                  {formStatus === "success" ? (
-                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="h-full flex flex-col items-center justify-center text-center">
-                        <CheckCircle2 className="w-20 h-20 text-green-500 mb-4" />
-                        <h3 className="text-2xl font-bold text-[#1a1a1a]">Thank You!</h3>
-                        <p className="text-slate-500">We have received your CSR partnership request.</p>
-                     </motion.div>
-                  ) : (
-                     <form onSubmit={handleFormSubmit} className="space-y-6">
-                        <div className="space-y-2">
-                           <Label htmlFor="fullname">Full Name</Label>
-                           <Input id="fullname" required className="bg-stone-50 border-stone-200 h-12 focus:ring-[#a7150b]" />
-                        </div>
-                        
-                        <div className="grid md:grid-cols-2 gap-6">
-                           <div className="space-y-2">
-                              <Label htmlFor="company">Company Name</Label>
-                              <Input id="company" required className="bg-stone-50 border-stone-200 h-12 focus:ring-[#a7150b]" />
-                           </div>
-                           <div className="space-y-2">
-                              <Label htmlFor="email">Email Address</Label>
-                              <Input id="email" type="email" required className="bg-stone-50 border-stone-200 h-12 focus:ring-[#a7150b]" />
-                           </div>
-                        </div>
-
-                        <div className="space-y-2">
-                           <Label htmlFor="phone">Contact Number</Label>
-                           <Input id="phone" type="tel" required className="bg-stone-50 border-stone-200 h-12 focus:ring-[#a7150b]" />
-                        </div>
-
-                        <div className="space-y-2">
-                           <Label htmlFor="message">Message</Label>
-                           <Textarea id="message" required className="bg-stone-50 border-stone-200 min-h-[120px] focus:ring-[#a7150b]" placeholder="Tell us about your CSR goals..." />
-                        </div>
-
-                        <Button type="submit" disabled={formStatus === 'submitting'} className="w-full h-12 bg-[#1a1a1a] hover:bg-black text-white font-bold text-lg rounded-xl">
-                           {formStatus === 'submitting' ? 'Submitting...' : 'SUBMIT'}
-                        </Button>
-                     </form>
-                  )}
-               </div>
+      <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100">
+        <div className="grid lg:grid-cols-5">
+          
+          {/* Contact Info Sidebar */}
+          <div className="lg:col-span-2 bg-[#a7150b] p-10 text-white flex flex-col justify-between">
+            <div>
+              <Handshake className="w-16 h-16 text-[#ffc107] mb-8" />
+              <h3 className="text-3xl font-serif font-bold mb-4">Partner With Us</h3>
+              <p className="text-white/80 mb-8 leading-relaxed">
+                Complete this form to start a conversation about how your organization can meet its CSR objectives with ACMEC.
+              </p>
             </div>
-         </div>
-      </section>
+            
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <Mail className="w-5 h-5 text-[#ffc107]" />
+                <span className="font-bold">contact@acmectrust.org</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <Building2 className="w-5 h-5 text-[#ffc107]" />
+                <span className="font-bold">Melmaruvathur - 603 319</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Form Area */}
+          <div className="lg:col-span-3 p-10 bg-white">
+            {state.succeeded ? (
+              <motion.div 
+                initial={{ opacity: 0 }} 
+                animate={{ opacity: 1 }} 
+                className="h-full flex flex-col items-center justify-center text-center"
+              >
+                <CheckCircle2 className="w-20 h-20 text-green-500 mb-4" />
+                <h3 className="text-2xl font-bold text-[#1a1a1a]">Thank You!</h3>
+                <p className="text-slate-500">We have received your CSR partnership request.</p>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="fullname">Full Name</Label>
+                  <Input 
+                    id="fullname" 
+                    name="fullname" // Added name attribute
+                    required 
+                    className="bg-stone-50 border-stone-200 h-12 focus:ring-[#a7150b]" 
+                  />
+                  <ValidationError prefix="Name" field="fullname" errors={state.errors} />
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="company">Company Name</Label>
+                    <Input 
+                      id="company" 
+                      name="company" // Added name attribute
+                      required 
+                      className="bg-stone-50 border-stone-200 h-12 focus:ring-[#a7150b]" 
+                    />
+                    <ValidationError prefix="Company" field="company" errors={state.errors} />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email Address</Label>
+                    <Input 
+                      id="email" 
+                      name="email" // Added name attribute
+                      type="email" 
+                      required 
+                      className="bg-stone-50 border-stone-200 h-12 focus:ring-[#a7150b]" 
+                    />
+                    <ValidationError prefix="Email" field="email" errors={state.errors} />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Contact Number</Label>
+                  <Input 
+                    id="phone" 
+                    name="phone" // Added name attribute
+                    type="tel" 
+                    required 
+                    className="bg-stone-50 border-stone-200 h-12 focus:ring-[#a7150b]" 
+                  />
+                  <ValidationError prefix="Phone" field="phone" errors={state.errors} />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea 
+                    id="message" 
+                    name="message" // Added name attribute
+                    required 
+                    className="bg-stone-50 border-stone-200 min-h-[120px] focus:ring-[#a7150b]" 
+                    placeholder="Tell us about your CSR goals..." 
+                  />
+                  <ValidationError prefix="Message" field="message" errors={state.errors} />
+                </div>
+
+                <Button 
+                  type="submit" 
+                  disabled={state.submitting} 
+                  className="w-full h-12 bg-[#1a1a1a] hover:bg-black text-white font-bold text-lg rounded-xl"
+                >
+                  {state.submitting ? 'Submitting...' : 'SUBMIT'}
+                </Button>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
 
       {/* ================= MODALS ================= */}
       <AnimatePresence>
