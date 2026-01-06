@@ -1525,7 +1525,8 @@ function Hero() {
       {/* Background Image */}
       <motion.div style={{ y: y1 }} className="absolute inset-0 z-0">
         <Image
-          src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766091901/dental-hospital_cd4gda.jpg"
+          // src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766091901/dental-hospital_cd4gda.jpg"
+          src="https://res.cloudinary.com/dvd7o5nph/image/upload/v1767694571/dental-hospital_ntqkui.jpg"
           alt="Hero Background"
           fill
           className="object-cover scale-110"
@@ -1687,7 +1688,8 @@ function About() {
         >
           <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766143744/a12_nbqg5x.webp"
+              // src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766143744/a12_nbqg5x.webp"
+              src="https://res.cloudinary.com/dvd7o5nph/image/upload/v1767693986/a12_f6xk38.webp"
               alt="Medical Service"
               width={700}
               height={500}
@@ -1724,14 +1726,16 @@ function Leadership() {
               {
                 name: "His Holiness Bangaru Adigalar",
                 role: "Founder",
-                image: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766091903/3952Founder-President_k3xqz3.png",
+                // image: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766091903/3952Founder-President_k3xqz3.png",
+                image: "https://ik.imagekit.io/j0xzq9pns/Omsakthi%20/3952Founder-President.png?updatedAt=1767688737331",
                 bgColor: "from-[#ffc107]/10 to-[#ffc107]/5",
                 borderColor: "border-[#ffc107]",
               },
               {
                 name: "Smt. Lakshmi Bangaru Adigalar",
                 role: "President",
-                image: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766091895/Vice-President_z3lp84.jpg",
+                // image: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766091895/Vice-President_z3lp84.jpg",
+                image: "https://ik.imagekit.io/j0xzq9pns/Omsakthi%20/Vice-President.jpg?updatedAt=1767688708134",
                 bgColor: "from-[#a7150b]/10 to-[#a7150b]/5",
                 borderColor: "border-[#a7150b]",
               },
@@ -1893,7 +1897,8 @@ function CsrRegistration() {
           >
             <div className="bg-white p-2">
                 <Image 
-                  src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766132506/Screenshot_2025-12-19_134112_js329n.png" 
+                  // src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766132506/Screenshot_2025-12-19_134112_js329n.png" 
+                  src="https://ik.imagekit.io/j0xzq9pns/Omsakthi%20/Approval%20Letter%20ACMEC-CSR%20ACTIVITIES%20(1)_page-0001.jpg" 
                   alt="Official CSR Approval Letter" 
                   width={800}
                   height={1000}
@@ -1950,15 +1955,25 @@ function MissionVision() {
 
 // ========== 6. AWARDS COMPONENT ==========
 function Awards() {
+  // const awards = [
+  //   { img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092337/2911191530526914-150x150_a5fseg.jpg", title: "State Govt Honor", desc: "Honored by Chief Minister Ms. J. Jayalalitha..." },
+  //   { img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092336/2911191530538674-150x150_semv32.jpg", title: "Nirmal Gram Puraskar", desc: "National award for sanitation..." },
+  //   { img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092336/2911191530539144-150x150_dyivy6.jpg", title: "Certificate of Excellence", desc: "Recognition for outstanding contribution..." },
+  //   { img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092336/2911191530534191-150x150_lo2fc6.jpg", title: "Best Institution", desc: "Awarded to Adhiparasakthi Annai Illam..." },
+  //   { img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092338/2911191530529377-150x150_mz3ixh.jpg", title: "Award of Appreciation", desc: "Awarded by the Department of Health..." },
+  //   { img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092338/2911191530527252-150x150_ud5spj.jpg", title: "Regional Recognition", desc: "Acknowledging our continuous support..." },
+  //   { img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092337/2911191530521793-150x150_hqdtpk.jpg", title: "Official Certification", desc: "Certification of merit from authorized government bodies." },
+  //   { img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092338/awards-150x150_rtu0ni.png", title: "National Honor", desc: "Founder H.H. Bangaru Adigalar receiving award...", badge: "Highest Honor" },
+  // ]
   const awards = [
-    { img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092337/2911191530526914-150x150_a5fseg.jpg", title: "State Govt Honor", desc: "Honored by Chief Minister Ms. J. Jayalalitha..." },
-    { img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092336/2911191530538674-150x150_semv32.jpg", title: "Nirmal Gram Puraskar", desc: "National award for sanitation..." },
-    { img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092336/2911191530539144-150x150_dyivy6.jpg", title: "Certificate of Excellence", desc: "Recognition for outstanding contribution..." },
-    { img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092336/2911191530534191-150x150_lo2fc6.jpg", title: "Best Institution", desc: "Awarded to Adhiparasakthi Annai Illam..." },
-    { img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092338/2911191530529377-150x150_mz3ixh.jpg", title: "Award of Appreciation", desc: "Awarded by the Department of Health..." },
-    { img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092338/2911191530527252-150x150_ud5spj.jpg", title: "Regional Recognition", desc: "Acknowledging our continuous support..." },
-    { img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092337/2911191530521793-150x150_hqdtpk.jpg", title: "Official Certification", desc: "Certification of merit from authorized government bodies." },
-    { img: "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766092338/awards-150x150_rtu0ni.png", title: "National Honor", desc: "Founder H.H. Bangaru Adigalar receiving award...", badge: "Highest Honor" },
+    { img: "https://ik.imagekit.io/j0xzq9pns/Omsakthi%20/2911191530526914-150x150.jpg?updatedAt=1767688700927", title: "State Govt Honor", desc: "Honored by Chief Minister Ms. J. Jayalalitha..." },
+    { img: "https://ik.imagekit.io/j0xzq9pns/Omsakthi%20/2911191530538674-150x150.jpg?updatedAt=1767688700968", title: "Nirmal Gram Puraskar", desc: "National award for sanitation..." },
+    { img: "https://ik.imagekit.io/j0xzq9pns/Omsakthi%20/2911191530539144-150x150.jpg?updatedAt=1767688700127", title: "Certificate of Excellence", desc: "Recognition for outstanding contribution..." },
+    { img: "https://ik.imagekit.io/j0xzq9pns/Omsakthi%20/2911191530534191-150x150.jpg?updatedAt=1767688700565", title: "Best Institution", desc: "Awarded to Adhiparasakthi Annai Illam..." },
+    { img: "https://ik.imagekit.io/j0xzq9pns/Omsakthi%20/2911191530529377-150x150.jpg?updatedAt=1767688700933", title: "Award of Appreciation", desc: "Awarded by the Department of Health..." },
+    { img: "https://ik.imagekit.io/j0xzq9pns/Omsakthi%20/2911191530527252-150x150.jpg?updatedAt=1767688703781", title: "Regional Recognition", desc: "Acknowledging our continuous support..." },
+    { img: "https://ik.imagekit.io/j0xzq9pns/Omsakthi%20/2911191530521793-150x150.jpg?updatedAt=1767688703730", title: "Official Certification", desc: "Certification of merit from authorized government bodies." },
+    { img: "https://ik.imagekit.io/j0xzq9pns/Omsakthi%20/awards-150x150.png", title: "National Honor", desc: "Founder H.H. Bangaru Adigalar receiving award...", badge: "Highest Honor" },
   ]
 
   return (
@@ -2389,7 +2404,8 @@ function Donation() {
 
               <div className="flex justify-center bg-gray-50 rounded-xl p-4 border border-gray-100">
                 <Image
-                  src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766169266/Screenshot_2025-12-20_000354_vxwwyc.png"
+                  // src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766169266/Screenshot_2025-12-20_000354_vxwwyc.png"
+                  src="https://ik.imagekit.io/j0xzq9pns/Omsakthi%20/Screenshot%202025-12-20%20000354.png"
                   alt="80G Certificate"
                   width={800}
                   height={1000}
@@ -2417,8 +2433,10 @@ function Donation() {
                       <Image
                         src={
                           page === 1
-                            ? "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133511/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0001_nw5ao7.jpg"
-                            : "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133704/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0002_vth9g7.jpg"
+                            // ? "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133511/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0001_nw5ao7.jpg"
+                            // : "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766133704/Renewal-Certificate-_ACMEC_TRUST_FCRA_page-0002_vth9g7.jpg"
+                            ? "https://ik.imagekit.io/j0xzq9pns/Omsakthi%20/ilovepdf_pages-to-jpg%20(2)/Renewal-Certificate-%20ACMEC%20TRUST%20%20FCRA_page-0001.jpg"
+                            : "https://ik.imagekit.io/j0xzq9pns/Omsakthi%20/ilovepdf_pages-to-jpg%20(2)/Renewal-Certificate-%20ACMEC%20TRUST%20%20FCRA_page-0002.jpg"
                         }
                         alt={`FCRA Page ${page}`}
                         width={600}
@@ -2547,10 +2565,14 @@ function CsrProjects() {
             */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {[
-                "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164830/097A1993_anatnz.jpg",
-                "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164805/097A1516_sodl4z.jpg",
-                "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164845/097A1597_wxps2o.jpg",
-                "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164797/097A1504_nn9vgr.jpg",
+                // "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164830/097A1993_anatnz.jpg",
+                // "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164805/097A1516_sodl4z.jpg",
+                // "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164845/097A1597_wxps2o.jpg",
+                // "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164797/097A1504_nn9vgr.jpg",
+                "https://res.cloudinary.com/dvd7o5nph/image/upload/v1767694747/097A1993_ultux4.jpg",
+                "https://res.cloudinary.com/dvd7o5nph/image/upload/v1767694746/097A1516_mgg1t0.jpg",
+                "https://res.cloudinary.com/dvd7o5nph/image/upload/v1767694751/097A1597_kx0nbn.jpg",
+                "https://res.cloudinary.com/dvd7o5nph/image/upload/v1767694720/097A1504_f2udat.jpg",
               ].map((imgSrc, idx) => (
                 <motion.div
                   key={idx}
@@ -2586,10 +2608,14 @@ function CsrProjects() {
             {/* Same layout for consistency */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {[
-                "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093845/IMG-20231206-WA0012_hysx3l.jpg",
-                "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093847/IMG-20231206-WA0054_nc25ip.jpg",
-                "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093844/IMG-20231206-WA0048_poj4kh.jpg",
-                "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093825/IMG-20231206-WA0018_ipotnj.jpg",
+                // "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093845/IMG-20231206-WA0012_hysx3l.jpg",
+                // "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093847/IMG-20231206-WA0054_nc25ip.jpg",
+                // "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093844/IMG-20231206-WA0048_poj4kh.jpg",
+                // "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093825/IMG-20231206-WA0018_ipotnj.jpg",
+                "https://res.cloudinary.com/dvd7o5nph/image/upload/v1767695314/IMG-20231206-WA0012_ghliaw.jpg",
+                "https://res.cloudinary.com/dvd7o5nph/image/upload/v1767695493/IMG-20231206-WA0054_sr5sgi.jpg",
+                "https://res.cloudinary.com/dvd7o5nph/image/upload/v1767695463/IMG-20231206-WA0048_ka209u.jpg",
+                "https://res.cloudinary.com/dvd7o5nph/image/upload/v1767695372/IMG-20231206-WA0018_yeshgp.jpg",
               ].map((imgSrc, idx) => (
                 <motion.div
                   key={idx}

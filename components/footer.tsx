@@ -262,7 +262,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <div className="bg-white p-1 rounded-full w-12 h-12 flex items-center justify-center shrink-0">
                 <Image
-                  src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1764939097/logo_dl1zqj.png"
+                  src="https://res.cloudinary.com/dvd7o5nph/image/upload/v1767693807/transparent-logo_png_square-removebg-preview_hv77ge.png"
                   alt="ACMEC Trust Logo"
                   width={40}
                   height={40}

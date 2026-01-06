@@ -716,10 +716,10 @@ export default function CSRPage() {
                   */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                     {[
-                      "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164830/097A1993_anatnz.jpg",
-                      "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164805/097A1516_sodl4z.jpg",
-                      "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164845/097A1597_wxps2o.jpg",
-                      "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766164797/097A1504_nn9vgr.jpg",
+                "https://res.cloudinary.com/dvd7o5nph/image/upload/v1767694747/097A1993_ultux4.jpg",
+                "https://res.cloudinary.com/dvd7o5nph/image/upload/v1767694746/097A1516_mgg1t0.jpg",
+                "https://res.cloudinary.com/dvd7o5nph/image/upload/v1767694751/097A1597_kx0nbn.jpg",
+                "https://res.cloudinary.com/dvd7o5nph/image/upload/v1767694720/097A1504_f2udat.jpg",
                     ].map((imgSrc, idx) => (
                       <motion.div
                         key={idx}
@@ -755,10 +755,10 @@ export default function CSRPage() {
                   {/* Same layout for consistency */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                     {[
-                      "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093845/IMG-20231206-WA0012_hysx3l.jpg",
-                      "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093847/IMG-20231206-WA0054_nc25ip.jpg",
-                      "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093844/IMG-20231206-WA0048_poj4kh.jpg",
-                      "https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766093825/IMG-20231206-WA0018_ipotnj.jpg",
+                "https://res.cloudinary.com/dvd7o5nph/image/upload/v1767695314/IMG-20231206-WA0012_ghliaw.jpg",
+                "https://res.cloudinary.com/dvd7o5nph/image/upload/v1767695493/IMG-20231206-WA0054_sr5sgi.jpg",
+                "https://res.cloudinary.com/dvd7o5nph/image/upload/v1767695463/IMG-20231206-WA0048_ka209u.jpg",
+                "https://res.cloudinary.com/dvd7o5nph/image/upload/v1767695372/IMG-20231206-WA0018_yeshgp.jpg",
                     ].map((imgSrc, idx) => (
                       <motion.div
                         key={idx}

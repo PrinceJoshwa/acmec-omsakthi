@@ -717,7 +717,8 @@ export default function AboutUsPage() {
              >
                 {/* Replace '/images/history.jpg' with your actual image path */}
                 <Image 
-                   src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766091899/mapims-12_wp1xsg.jpg" 
+                  //  src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766091899/mapims-12_wp1xsg.jpg" 
+                   src="https://res.cloudinary.com/dvd7o5nph/image/upload/v1767694530/mapims-12_vls6ik.jpg" 
                    alt="Melmaruvathur Early Days"
                    fill
                    className="object-fill"
@@ -745,7 +746,7 @@ export default function AboutUsPage() {
                   <div className="w-48 h-48 relative rounded-full mb-6 overflow-hidden border-4 border-white shadow-lg">
                      {/* Replace '/images/founder.jpg' */}
                      <Image 
-                       src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766091903/3952Founder-President_k3xqz3.png" 
+                       src="https://res.cloudinary.com/dvd7o5nph/image/upload/v1767694506/3952Founder-President_cnpof3.png" 
                        alt="His Holiness Bangaru Adigalar"
                        fill
                        className="object-fill"
@@ -763,7 +764,7 @@ export default function AboutUsPage() {
                   <div className="w-48 h-48 relative rounded-full mb-6 overflow-hidden border-4 border-white shadow-lg">
                      {/* Replace '/images/president.jpg' */}
                      <Image 
-                       src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766091895/Vice-President_z3lp84.jpg" 
+                       src="https://res.cloudinary.com/dvd7o5nph/image/upload/v1767694489/Vice-President_bdotgd.jpg" 
                        alt="Smt. Lakshmi Bangaru Adigalar"
                        fill
                        className="object-fill"
@@ -781,7 +782,7 @@ export default function AboutUsPage() {
                   <div className="w-48 h-48 relative rounded-full mb-6 overflow-hidden border-4 border-white shadow-lg">
                      {/* Replace '/images/vice-president.jpg' */}
                      <Image 
-                       src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766143689/n2_qp1igt.webp" 
+                       src="https://res.cloudinary.com/dvd7o5nph/image/upload/v1767694381/n2_hlurq3.webp" 
                        alt="Mr. G.B. Anbalagan"
                        fill
                        className="object-fill"
@@ -1013,7 +1014,7 @@ export default function AboutUsPage() {
                   <div className="relative h-64 md:h-80 w-full bg-black/20 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                      {/* Replace '/images/mapims-building.jpg' */}
                      <Image 
-                       src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1766143744/a12_nbqg5x.webp" 
+                       src="https://res.cloudinary.com/dvd7o5nph/image/upload/v1767693986/a12_f6xk38.webp" 
                        alt="MAPIMS Building" 
                        fill 
                        className="object-fill"

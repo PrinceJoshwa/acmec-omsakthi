@@ -317,7 +317,8 @@ export default function Header() {
               className="relative w-12 h-12 md:w-14 md:h-14 bg-white rounded-full p-1 shadow-lg group-hover:shadow-xl transition-shadow overflow-hidden"
             >
               <Image
-                src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1764939097/logo_dl1zqj.png"
+                // src="https://res.cloudinary.com/dsj3kcbf4/image/upload/v1764939097/logo_dl1zqj.png"
+                src="https://res.cloudinary.com/dvd7o5nph/image/upload/v1767693807/transparent-logo_png_square-removebg-preview_hv77ge.png"
                 alt="ACMEC Trust Logo"
                 fill
                 className="object-contain p-1"
