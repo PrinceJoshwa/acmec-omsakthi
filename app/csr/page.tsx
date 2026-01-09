@@ -635,60 +635,96 @@ export default function CSRPage() {
       </section>
 
       {/* ================= ACTIVITIES SECTION ================= */}
+{/* ================= ACTIVITIES SECTION ================= */}
       <section className="py-24 bg-stone-50">
         <div className="container mx-auto px-4">
+           {/* Section Header */}
            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="text-center mb-16">
               <span className="text-[#a7150b] font-bold tracking-widest uppercase text-sm">Where Your Money Goes</span>
               <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#1a1a1a] mt-2">Impact Areas</h2>
               <p className="text-slate-500 mt-4 max-w-2xl mx-auto">We look into the basic needs of people viz., food, clothing, and shelter, serving the suppressed and downtrodden irrespective of caste, creed, or religion.</p>
            </motion.div>
 
-           <div className="grid md:grid-cols-3 gap-8">
-              {/* Charitable Services */}
-              <Card className="col-span-1 md:col-span-2 p-8 border-t-4 border-t-[#a7150b] shadow-lg">
-                 <div className="flex items-center gap-4 mb-6">
-                    <div className="p-3 bg-red-50 rounded-xl text-[#a7150b]"><Heart className="w-8 h-8"/></div>
-                    <h3 className="text-2xl font-bold text-[#1a1a1a]">Charitable & Welfare Services</h3>
-                 </div>
-                 <div className="grid sm:grid-cols-2 gap-4">
-                    {[
-                       "Aid appliances for the handicapped",
-                       "Relief for victims of natural calamities",
-                       "Free homes with bore wells & electricity",
-                       "Homes for orphans and the aged",
-                       "Water facilities for leper colonies",
-                       "Solemnizing free marriages for the poor",
-                       "Adoption of children of life-sentence prisoners",
-                       "Free distribution of ploughs/sprayers to farmers"
-                    ].map((item, i) => (
-                       <div key={i} className="flex items-start gap-3">
-                          <CheckCircle2 className="w-5 h-5 text-[#ffc107] shrink-0 mt-0.5" />
-                          <p className="text-slate-700 text-sm font-medium">{item}</p>
-                       </div>
-                    ))}
+           <div className="flex flex-col gap-8 max-w-6xl mx-auto">
+              
+              {/* 1. Charitable Services (White Background) */}
+              <Card className="p-8 md:p-10 border-t-4 border-t-[#a7150b] shadow-xl bg-white rounded-2xl">
+                 <div className="flex flex-col md:flex-row gap-6 md:items-start">
+                    <div className="shrink-0 p-4 bg-red-50 rounded-2xl text-[#a7150b]">
+                        <Heart className="w-8 h-8"/>
+                    </div>
+                    <div className="w-full">
+                        <h3 className="text-2xl font-bold text-[#1a1a1a] mb-2">Charitable & Welfare Services</h3>
+                        <p className="text-slate-500 mb-8 max-w-3xl">Providing essential support to those who need it most, ranging from disaster relief to daily sustenance.</p>
+                        
+                        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+                            {[
+                            "Aid appliances for handicapped",
+                            "Disaster relief & support",
+                            "Free homes & bore wells",
+                            "Orphanages & Old age homes",
+                            "Water for leper colonies",
+                            "Free marriages for poor",
+                            "Adoption of prisoner's children",
+                            "Free farming equipment"
+                            ].map((item, i) => (
+                            <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-stone-50 border border-stone-100">
+                                <CheckCircle2 className="w-5 h-5 text-[#a7150b] shrink-0 mt-0.5" />
+                                <p className="text-slate-700 text-sm font-semibold">{item}</p>
+                            </div>
+                            ))}
+                        </div>
+                    </div>
                  </div>
               </Card>
 
-              {/* Educational Services */}
-              <Card className="p-8 border-t-4 border-t-[#ffc107] shadow-lg bg-[#1a1a1a] text-white">
-                 <div className="flex items-center gap-4 mb-6">
-                    <div className="p-3 bg-white/10 rounded-xl text-[#ffc107]"><Briefcase className="w-8 h-8"/></div>
-                    <h3 className="text-2xl font-bold">Educational Activities</h3>
+              {/* 2. Educational Activities (Dark Background - Restored) */}
+              <Card className="p-8 md:p-10 border-t-4 border-t-[#ffc107] shadow-xl bg-[#1a1a1a] text-white rounded-2xl">
+                 <div className="flex flex-col md:flex-row gap-6 md:items-start">
+                    {/* Main Icon */}
+                    <div className="shrink-0 p-4 bg-white/10 rounded-2xl text-[#ffc107]">
+                        <Briefcase className="w-8 h-8"/>
+                    </div>
+                    
+                    <div className="w-full">
+                        <h3 className="text-2xl font-bold text-white mb-2">Educational Activities</h3>
+                        <p className="text-gray-400 mb-8 max-w-3xl">
+                             The trust runs various institutions focused on character inculcation and professional excellence, ensuring students shine as model citizens.
+                        </p>
+
+                        {/* Grid of Colleges - Dark Theme Optimized */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {[
+                                "Adhiparasakthi Engineering College",
+                                "Adhiparasakthi Arts & Sciences College",
+                                "Adhiparasakthi College of Nursing",
+                                "Adhiparasakthi College of Physiotherapy",
+                                "Adhiparasakthi College of Pharmacy",
+                                "Adhiparasakthi College of Education",
+                                "Adhiparasakthi Polytechnic College",
+                                "Adhiparasakthi Agricultural College",
+                                "Adhiparasakthi Matriculation School"
+                            ].map((college, i) => (
+                                <motion.div 
+                                    key={i} 
+                                    whileHover={{ y: -5 }}
+                                    className="group flex items-center gap-4 p-4 rounded-xl border border-white/10 bg-white/5 hover:border-[#ffc107] hover:bg-white/10 transition-all duration-300 cursor-default"
+                                >
+                                    {/* Icon Box */}
+                                    <div className="w-10 h-10 rounded-full bg-white/10 text-[#ffc107] group-hover:bg-[#ffc107] group-hover:text-black flex items-center justify-center transition-colors shrink-0">
+                                        <GraduationCap className="w-5 h-5" />
+                                    </div>
+                                    {/* Text */}
+                                    <span className="text-sm font-medium text-gray-300 group-hover:text-white leading-tight">
+                                        {college}
+                                    </span>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
                  </div>
-                 <p className="text-gray-300 mb-6 leading-relaxed">
-                    The trust ensures that students shine as model citizens. We run institutions at G.B. Nagar, Kalavai focused on character inculcation.
-                 </p>
-                 <ul className="space-y-4">
-                    <li className="flex items-center gap-3">
-                       <div className="w-2 h-2 bg-[#ffc107] rounded-full" />
-                       <span className="font-bold">Adhiparasakthi College of Engineering</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                       <div className="w-2 h-2 bg-[#ffc107] rounded-full" />
-                       <span className="font-bold">Teacher Training Institutions</span>
-                    </li>
-                 </ul>
               </Card>
+
            </div>
         </div>
       </section>

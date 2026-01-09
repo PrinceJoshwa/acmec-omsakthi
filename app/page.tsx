@@ -1773,6 +1773,7 @@ function Leadership() {
             { name: "Mr. G.B. Senthil Kumar", role: "Vice President / Trustee" },
             { name: "Mrs. B. Sridevi", role: "Treasurer / Trustee" },
             { name: "Mrs. B. Umadevi", role: "Secretary / Trustee" },
+            
           ].map((trustee, idx) => (
             <motion.div
               key={idx}
@@ -1808,6 +1809,12 @@ function Leadership() {
             { name: "Mr. K. Arulmozhi", role: "Trustee" },
             { name: "Mr. S.R. Raghuvir", role: "Trustee" },
             { name: "Mr. A. Saiprasad", role: "Trustee" },
+            { name: "Mrs. A. Asharani", role: "Trustee" },
+            { name: "Dr. E. Srilekha", role: "Trustee" },
+            { name: "Mrs. M. Vanitha", role: "Trustee" },
+            { name: "Mrs. A. Madhumalar", role: "Trustee" },
+            { name: "Miss. S. Monasakthi", role: "Trustee" },
+            { name: "Mrs. A. Sasikala", role: "Trustee" },
           ].map((trustee, idx) => (
             <motion.div
               key={trustee.name}
