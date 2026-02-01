@@ -94,10 +94,10 @@
 // //               <li className="flex items-center gap-3">
 // //                 <Mail className="w-4 h-4 text-[#ffc107]" />
 // //                 <a
-// //                   href="mailto:info@acmectrust.org"
+// //                   href="mailto:acmec@omsakthiamma.org"
 // //                   className="text-gray-400 hover:text-[#ffc107] text-sm font-medium transition-colors"
 // //                 >
-// //                   info@acmectrust.org
+// //                   acmec@omsakthiamma.org
 // //                 </a>
 // //               </li>
 // //             </ul>
@@ -216,10 +216,10 @@
 //               <li className="flex items-center gap-3">
 //                 <Mail className="w-4 h-4 text-[#ffc107]" />
 //                 <a
-//                   href="mailto:info@acmectrust.org"
+//                   href="mailto:acmec@omsakthiamma.org"
 //                   className="text-gray-400 hover:text-[#ffc107] text-sm font-medium transition-colors"
 //                 >
-//                   info@acmectrust.org
+//                   acmec@omsakthiamma.org
 //                 </a>
 //               </li>
 //             </ul>
@@ -334,8 +334,8 @@ export default function Footer() {
 
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-[#FFC800] shrink-0" />
-                <a href="mailto:info@acmectrust.org" className="hover:text-[#FFC800] transition-colors">
-                  info@acmectrust.org
+                <a href="mailto:acmec@omsakthiamma.org" className="hover:text-[#FFC800] transition-colors">
+                  acmec@omsakthiamma.org
                 </a>
               </div>
             </div>

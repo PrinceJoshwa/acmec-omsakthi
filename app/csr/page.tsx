@@ -231,7 +231,7 @@
 //                   <div className="space-y-6">
 //                      <div className="flex items-center gap-4">
 //                         <Mail className="w-5 h-5 text-[#ffc107]" />
-//                         <span className="font-bold">contact@acmectrust.org</span>
+//                         <span className="font-bold">acmec@omsakthiamma.org</span>
 //                      </div>
 //                      <div className="flex items-center gap-4">
 //                         <Building2 className="w-5 h-5 text-[#ffc107]" />
@@ -920,7 +920,7 @@ export default function CSRPage() {
             <div className="space-y-6">
               <div className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-[#ffc107]" />
-                <span className="font-bold">contact@acmectrust.org</span>
+                <span className="font-bold">acmec@omsakthiamma.org</span>
               </div>
               <div className="flex items-center gap-4">
                 <Building2 className="w-5 h-5 text-[#ffc107]" />

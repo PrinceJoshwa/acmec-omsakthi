@@ -992,7 +992,7 @@
 //                         Email Us
 //                       </p>
 //                       <p className="font-medium text-sm">
-//                         contact@acmectrust.org
+//                         acmec@omsakthiamma.org
 //                       </p>
 //                     </div>
 //                   </div>
@@ -2760,7 +2760,7 @@ function CsrInquiry() {
                         Email Us
                       </p>
                       <p className="font-medium text-sm break-all">
-                        contact@acmectrust.org
+                        acmec@omsakthiamma.org
                       </p>
                     </div>
                   </div>               
